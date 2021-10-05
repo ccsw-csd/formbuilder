@@ -1,8 +1,8 @@
 import { Component, ComponentFactoryResolver, Input, OnDestroy, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { EventService } from 'src/app/core/events/event.service';
-import { EventData } from 'src/app/core/events/EventData';
-import { SequentialService } from 'src/app/core/utils/event.service';
+import { EventService } from 'src/app/formbuilder/services/event.service';
+import { EventData } from 'src/app/core/model/EventData';
+import { SequentialService } from 'src/app/core/services/sequential.service';
 import { FormBuilderPluginContainerComponent } from '../plugins/container/container.component';
 
 @Component({

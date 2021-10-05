@@ -1,5 +1,5 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { EventData } from 'src/app/core/events/EventData';
+import { EventData } from 'src/app/core/model/EventData';
 import { PluginBaseComponent } from '../plugin-base-component';
 
 @Component({

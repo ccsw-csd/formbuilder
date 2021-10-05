@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { EventData } from 'src/app/core/events/EventData';
+import { EventData } from 'src/app/core/model/EventData';
 
 @Injectable({
   providedIn: 'root'

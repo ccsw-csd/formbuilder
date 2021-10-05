@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
-import { EventService } from 'src/app/core/events/event.service';
-import { EventData } from 'src/app/core/events/EventData';
+import { EventService } from 'src/app/formbuilder/services/event.service';
+import { EventData } from 'src/app/core/model/EventData';
 import { FormViewerComponent } from 'src/app/formviewer/form-viewer/form-viewer.component';
 import { formMetadata } from '../plugins/plugin-config';
 

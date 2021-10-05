@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { EventData } from 'src/app/core/events/EventData';
+import { EventData } from 'src/app/core/model/EventData';
 import { ChangeFormDataService } from '../../services/change-formdata.service';
 import { RestDataLoaderService } from '../../services/rest-data-loader.service';
 

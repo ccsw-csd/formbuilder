@@ -1,3 +1,5 @@
+@import '../assets/scss/color';
+
 div.container {
     display: flex;
     flex-direction: column;
@@ -7,16 +9,19 @@ div.container {
     
     div.header {
         height: 75px;
-        background-color: #b6b6b6;
+        background-color: $primary;
         
         display: flex;
         flex-direction: row;
         
-        h1 span {
-            font-size: 32px;
-            vertical-align: middle;
-            padding-bottom: 3px;
-            padding-right: 15px;
+        h1 {
+            color: $white;
+            span {
+                font-size: 32px;
+                vertical-align: middle;
+                padding-bottom: 3px;
+                padding-right: 15px;
+            }
         }
     }
     
@@ -33,8 +38,8 @@ div.container {
     div.footer {
         padding: 5px 25px 0px 25px;
         height: 35px;
-        background-color: #b6b6b6;
-        font-weight: bold;
+        background-color: $primary;
+        color: $white;
     }
 
 

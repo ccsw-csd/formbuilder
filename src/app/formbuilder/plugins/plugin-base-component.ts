@@ -2,9 +2,9 @@ import { Component, ComponentFactoryResolver, Inject, Injector, Input, OnDestroy
 import { MatDialog } from "@angular/material/dialog";
 import { Subscription } from "rxjs";
 import { ConfirmationDialogComponent } from "src/app/core/confirmation-dialog/confirmation-dialog.component";
-import { EventService } from "src/app/core/events/event.service";
-import { EventData } from "src/app/core/events/EventData";
-import { SequentialService } from "src/app/core/utils/event.service";
+import { EventService } from "src/app/formbuilder/services/event.service";
+import { EventData } from "src/app/core/model/EventData";
+import { SequentialService } from "src/app/core/services/sequential.service";
 
 @Component({
     selector: 'plugin-base',
