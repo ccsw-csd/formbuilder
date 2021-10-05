@@ -32,7 +32,7 @@ export class FormBuilderPluginContainerComponent extends PluginBaseComponent  {
     let indexItemContainer = 0;
     let arrayElements : ViewContainerRef[] = this.itemContainer.toArray();
 
-    this.elementData.components.forEach(element => {
+    this.data.components.forEach(element => {
       if (element.type != null) {
         this.generateComponent(arrayElements[indexItemContainer], element);
         indexItemContainer++;
@@ -62,13 +62,12 @@ export class FormBuilderPluginContainerComponent extends PluginBaseComponent  {
   }
 
 
-  private addComponent(container: ViewContainerRef, componentClass: Type<any>, elementData:any) {
+  private addComponent(container: ViewContainerRef, componentClass: Type<any>, data:any) {
     // Create component dynamically inside the ng-template
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentClass);
     const component = container.createComponent(componentFactory);
 
-    component.instance.elementData = elementData;
-    component.instance.data = elementData.data;
+    component.instance.data = data;
     component.instance.componentClass = componentClass;
   }
 

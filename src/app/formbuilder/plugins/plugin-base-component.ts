@@ -16,8 +16,7 @@ import { SequentialService } from "src/app/core/utils/event.service";
 })
 export abstract class PluginBaseComponent implements OnInit, OnDestroy {
 
-    @Input() data: any;
-    @Input() elementData: any;
+  @Input() data: any;
     
     private subscription: Subscription;
     private COMPONENT_INTERNAL_ID : number = 0;
@@ -58,7 +57,7 @@ export abstract class PluginBaseComponent implements OnInit, OnDestroy {
     }
 
     edit() : void {
-        this.eventService.sendEvent({triger: 'click', action:'openProperties', data: this.elementData}, this.getComponentId(), 'Properties');
+        this.eventService.sendEvent({triger: 'click', action:'openProperties', data: this.data}, this.getComponentId(), 'Properties');
     }
     
     delete() : void {    
@@ -71,9 +70,9 @@ export abstract class PluginBaseComponent implements OnInit, OnDestroy {
         .afterClosed()
         .subscribe((result: Boolean) => {
           if (result == true) {
-            for (var variableKey in this.elementData){
-              if (this.elementData.hasOwnProperty(variableKey)){
-                  delete this.elementData[variableKey];
+            for (var variableKey in this.data){
+              if (this.data.hasOwnProperty(variableKey)){
+                  delete this.data[variableKey];
               }
             }
           }

@@ -62,13 +62,12 @@ export class FormBuilderPropertiesComponent implements OnInit, OnDestroy {
 
   
 
-  private addComponent(componentClass: Type<any>, elementData:any) {
+  private addComponent(componentClass: Type<any>, data:any) {
     // Create component dynamically inside the ng-template
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentClass);
     const component = this.container.createComponent(componentFactory);
 
-    component.instance.elementData = elementData;
-    component.instance.data = elementData.data;
+    component.instance.data = data;
     component.instance.componentClass = componentClass;
 
     // Push the component so that we can keep track of which components are created

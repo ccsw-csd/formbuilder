@@ -8,7 +8,6 @@ import { Component, Input, OnInit } from '@angular/core';
 export class InputPropertiesComponent implements OnInit {
 
   @Input() data: any;
-  @Input() elementData: any;
 
   constructor() { }
 

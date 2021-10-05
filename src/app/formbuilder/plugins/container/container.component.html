@@ -1,9 +1,9 @@
 <div class='container-component'>
 
-    <div style='display:flex; flex:1; flex-direction: {{elementData.direction}}'>        
-        <ng-template ngFor let-item [ngForOf]="elementData.components">
+    <div style='display:flex; flex:1; flex-direction: {{data.direction}}'>        
+        <ng-template ngFor let-item [ngForOf]="data.components">
             <div *ngIf='item.type == null' style='flex:1'>
-                <form-builder-plugin-void [elementData]="item"></form-builder-plugin-void>
+                <form-builder-plugin-void [data]="item"></form-builder-plugin-void>
             </div>
             <div *ngIf='item.type != null' style='flex:1'>
                 <ng-template #itemContainer></ng-template>

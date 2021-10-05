@@ -9,7 +9,6 @@ import { EventService } from 'src/app/core/events/event.service';
 export class ContainerPropertiesComponent implements OnInit, OnDestroy  {
 
   @Input() data: any;
-  @Input() elementData: any;
 
   public numberChilds: number = 1;
 
@@ -19,20 +18,20 @@ export class ContainerPropertiesComponent implements OnInit, OnDestroy  {
    }
 
   ngOnInit() {
-    this.numberChilds = this.elementData.components.length;    
+    this.numberChilds = this.data.components.length;    
   }
 
   ngOnDestroy() {
   }
 
   getDirectionName() : string {
-    if (this.elementData.direction=='row') return 'Columnas';
+    if (this.data.direction=='row') return 'Columnas';
     else return 'Filas';
   }
 
   changeNumberChilds() : void {
     if (this.numberChilds < 1) this.numberChilds = 1;
-    let actualChilds = this.elementData.components;
+    let actualChilds = this.data.components;
 
     let deltaNumberItems = this.numberChilds - actualChilds.length;
 
@@ -41,8 +40,8 @@ export class ContainerPropertiesComponent implements OnInit, OnDestroy  {
     let mustDelete : boolean = deltaNumberItems < 0;
 
     for (let i = 0; i < Math.abs(deltaNumberItems); i++) {
-      if (mustDelete) this.elementData.components.pop();
-      else this.elementData.components.push({});
+      if (mustDelete) this.data.components.pop();
+      else this.data.components.push({});
     }
 
 

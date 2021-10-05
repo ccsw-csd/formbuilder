@@ -34,7 +34,7 @@ export class FormBuilderPluginVoidComponent extends PluginBaseComponent {
 
     let componentConfig = PLUGINS_CONFIG[element];
     if (componentConfig != null && componentConfig.defaultConfig != null)
-      Object.assign(this.elementData, componentConfig.defaultConfig);
+      Object.assign(this.data, componentConfig.defaultConfig);
   }
 
   receiveEvent(event: EventData) {

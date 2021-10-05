@@ -7,7 +7,7 @@
 
         <mat-form-field appearance="outline" style="width: 195px;">
             <mat-label>Tipo</mat-label>
-            <mat-select [(ngModel)]="elementData.dataType" required>
+            <mat-select [(ngModel)]="data.dataType" required>
                 <mat-option value="text">Texto</mat-option>
                 <mat-option value="number">Número</mat-option>
                 <mat-option value="password">Password</mat-option>
@@ -15,32 +15,32 @@
             </mat-select>
         </mat-form-field>
 
-        <mat-checkbox style="width: 130px; padding-top: 18px; padding-left: 50px;" [(ngModel)]="elementData.required">Obligatorio</mat-checkbox>
+        <mat-checkbox style="width: 130px; padding-top: 18px; padding-left: 50px;" [(ngModel)]="data.required">Obligatorio</mat-checkbox>
     </div>
 
     <mat-form-field appearance="outline" style="width: 100%;">        
         <mat-label>Databind</mat-label>
-        <input matInput [(ngModel)]="elementData.name" placeholder="Nombre" />
+        <input matInput [(ngModel)]="data.name" placeholder="Nombre" />
     </mat-form-field>
 
     <mat-form-field appearance="outline" style="width: 100%;">        
         <mat-label>Nombre</mat-label>
-        <input matInput [(ngModel)]="elementData.text" placeholder="Nombre" />
+        <input matInput [(ngModel)]="data.text" placeholder="Nombre" />
     </mat-form-field>
 
     <mat-form-field appearance="outline" style="width: 100%;">        
         <mat-label>Validacion</mat-label>
-        <textarea  matInput [(ngModel)]="elementData.validation" placeholder="Validacion"></textarea>
+        <textarea  matInput [(ngModel)]="data.validation" placeholder="Validacion"></textarea>
     </mat-form-field>
     
     <mat-form-field appearance="outline" style="width: 100%;">
         <mat-label>Estilo CSS</mat-label>
-        <textarea  matInput [(ngModel)]="elementData.style" placeholder="Estilo CSS"></textarea>
+        <textarea  matInput [(ngModel)]="data.style" placeholder="Estilo CSS"></textarea>
     </mat-form-field>
     
     <mat-form-field appearance="outline" style="width: 100%;">        
         <mat-label>Valor por defecto</mat-label>
-        <input matInput [(ngModel)]="elementData.value" placeholder="Valor por defecto" />
+        <input matInput [(ngModel)]="data.value" placeholder="Valor por defecto" />
     </mat-form-field>
 
 </div>

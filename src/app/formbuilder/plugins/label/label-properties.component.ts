@@ -8,7 +8,6 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LabelPropertiesComponent implements OnInit {
 
   @Input() data: any;
-  @Input() elementData: any;
 
   constructor() {
    }
