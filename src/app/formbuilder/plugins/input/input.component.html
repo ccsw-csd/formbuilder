@@ -1,0 +1,14 @@
+<div class="container-component">
+    <mat-form-field appearance="outline" style="{{elementData.style}}">        
+        <mat-label>{{elementData.text}}</mat-label>
+        <input matInput type="{{elementData.type}}" [(ngModel)]="elementData.value" placeholder="{{elementData.text}}" readonly required="{{elementData.required}}"/>
+    </mat-form-field>
+    <div class="options">
+        <div style="flex:1"></div>
+        <div style="line-height: normal; height: 24px;">
+            <span class="material-icons-outlined md-18" (click)="edit()">edit</span>
+            <span class="material-icons-outlined md-18" (click)="delete()">delete</span>
+        </div>
+        <div style="flex:1"></div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+
+    <h2>Label</h2>
+    
+    <div style="display:flex;flex-direction: column;">
+        <mat-form-field appearance="outline" style="width: 100%;">        
+            <mat-label>Texto</mat-label>
+            <input matInput [(ngModel)]="elementData.value" placeholder="Texto" />
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" style="width: 100%;height:250px;">        
+            <mat-label>Estilo CSS</mat-label>
+            <textarea  matInput [(ngModel)]="elementData.style" placeholder="Estilo CSS"></textarea>
+        </mat-form-field>
+    </div>
+
+
+</div>

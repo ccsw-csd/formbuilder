@@ -1,0 +1,22 @@
+<div class="container">
+
+    <h2>Container</h2>
+    
+    <div style="display:flex;flex-direction: row;">
+        <mat-form-field appearance="outline" style="width: 150px;margin-right: 15px;">
+            <mat-label>Dirección</mat-label>
+            <mat-select [(ngModel)]="elementData.direction" required>
+                <mat-option value="row">Horizontal</mat-option>
+                <mat-option value="column">Vertical</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" style="width: 175px;">        
+            <mat-label>{{getDirectionName()}}</mat-label>
+            <input matInput required type="number" [(ngModel)]="numberChilds" placeholder="{{getDirectionName()}}" (change)="changeNumberChilds()" />
+        </mat-form-field>
+    </div>
+
+
+
+</div>

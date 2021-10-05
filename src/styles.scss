@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap");
+@import "./assets/scss/_master.scss";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: "Source Sans Pro", sans-serif; }
+
+
+mat-icon.md-18 { font-size: 18px; }
+mat-icon.md-24 { font-size: 24px; }
+mat-icon.md-36 { font-size: 36px; }
+mat-icon.md-48 { font-size: 48px; }
+
+mat-icon.black {
+    color: #707070;
+}

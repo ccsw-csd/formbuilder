@@ -1,0 +1,30 @@
+.container-component {
+    display:flex; 
+    flex-direction: row;
+
+    min-height: 40px;
+    background-color: #f5f5f5;
+    border: 1px dashed #bfbfbf;
+    margin: 1px;
+    padding-top: 6px;
+
+    .element {
+        color:#9f9f9f;
+        width:100%; 
+        text-align: center; 
+        height: 35px;
+
+        .icon {
+            padding-bottom: 3px;
+            vertical-align: middle;
+        }
+    }
+}
+
+
+.cdk-drop-list-dragging {
+    div.element {
+        width:0px;
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,360 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap");
+@import '~@angular/material/theming';
+
+@import "./color";
+
+
+* {
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar-track {
+    background-color: none;
+  }
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $scrollbar;    
+  }
+  
+  // Handle on hover 
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $scrollbar-hover;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #eaeaea;
+    border-radius: 10px;
+  }
+}
+
+.mat-dialog-container::before {
+  overflow: hidden !important;
+}
+
+
+html,
+body,
+header,
+nav,
+main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: $body;
+}
+.mat-cell {
+  font-family: "Source Sans Pro", sans-serif !important;
+  letter-spacing: normal;
+  font-size: 16px !important;
+}
+
+body {
+  background-color: $background;
+}
+
+nav > * ~ * {
+  color: $foreground;
+}
+
+h1 {
+  color: $title;
+  font-size: 20px;
+  font-weight: 700;
+}
+h2 {
+  color: $title;
+  font-size: 20px;
+  font-weight: 400;
+}
+mat-tab-group {
+  height: 100%;
+  mat-tab-header {
+    width: fit-content;
+  }
+  .mat-tab-label {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+  }
+  mat-tab-body {
+    padding: 1em 0 0 0;
+  }
+  .mat-tab-body-wrapper {
+    height: 100%;
+  }
+}
+
+
+.mat-h1 {
+  font-weight: 500 !important;
+}
+
+
+.title-firstcolor {
+  color: $garnet;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.title-secondcolor {
+  color: $selected;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.spinner-container {
+  height: 100%;
+  position: absolute;
+  background-color: rgba(133, 133, 133, 0.4);
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  mat-spinner {
+    position: absolute;
+    top: 45%;
+    left: 47.5%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+a[href] {
+  cursor: pointer;
+}
+
+
+.button-bar {
+  text-align: right;
+}
+
+.space-right {
+  margin-right: 15px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.read-only {
+  color: #aaaaaa;
+}
+
+.float-left {
+  margin-left: auto;
+}
+
+
+button:active {
+  border: 0;
+}
+
+
+button {
+  border-radius: 0px !important;
+  font-size: 14px;
+  min-width: 100px;
+  min-height: 40px;
+  max-height: 40px;
+  border: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+button[mat-icon-button] {
+  min-width: 15px;
+}
+
+button[primary] {
+  background-color: $button-color-primary;
+  color: $button-font-color-primary !important;
+  border-color: $button-border-color-primary;
+  border-style: solid;
+  border-width: 1px;
+}
+
+button[secondary] {
+  background-color: $button-color-secondary;
+  color: $button-font-color-secondary !important;
+  border-color: $button-border-color-secondary;
+  border-style: solid;
+  border-width: 1px;
+}
+
+button[primary-link] {
+  background-color: inherit;
+  color: $primary-link;
+  border-color: inherit;
+  border-style: none;
+  border-width: 0px;
+}
+
+button[secondary-link] {
+  background-color: inherit;
+  color: $secondary-link;
+  border-color: inherit;
+  border-style: none;
+  border-width: 0px;
+}
+
+
+button:not(disabled) {
+  cursor: pointer;
+}
+button[primary] {
+  &:disabled,
+  &[disabled] {
+    background: $button-disabled !important;
+    border-color: $button-disabled;
+  }
+}
+
+button[secondary] {
+  &:disabled,
+  &[disabled] {
+    background: $button-disabled !important;
+    border-color: $button-disabled;
+    color: $button-font-color-primary;
+  }
+}
+
+
+
+.cdk-global-scrollblock {
+  overflow-y: auto;
+}
+
+.ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar {
+  background-color: rgba($secondary, 0.25);
+}
+
+.snackbar-green {
+  background: #00c853;
+  color: $white;
+}
+.snackbar-red {
+  background: #d50000;
+  color: $white;
+}
+
+
+// Estilos para el texto de compilación 
+span.text_grey {
+  color: darkgrey;
+}
+
+span.text_green {
+  color: green;
+}
+
+span.text_red {
+  color: red;
+  font-weight: bold;
+}
+
+
+table:not(.mat-calendar-table) {
+  width: 100%;
+  box-shadow: none !important;
+
+  th {
+    // padding-left: 1em;
+    // padding-right: 1em;
+    background-color: $table-header;
+    font-size: 16px;
+    font-weight: 700;
+    border-bottom-color: #36b8e0;
+  }
+
+  td {
+    // padding-left: 1em;
+    // padding-right: 1em;
+    background-color: $table-header;
+    border-bottom-color: #36b8e0 !important;
+    height: 3.5em;
+  }
+
+  input {
+    background: none;
+    height: auto;
+    outline: none;
+    border: none;
+    padding: 0;
+    &::placeholder {
+      opacity: 0.5;
+    }
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  .mat-footer-row > * {
+    background-color: $table-result;
+    font-weight: 700;
+    border-bottom-color: white !important;
+  }
+
+  .mat-cell,
+  .mat-footer-cell {
+    font-size: unset;
+  }
+
+  // Optional classes for special table styles
+  .center {
+    text-align: center !important;
+  }
+  .editable {
+    background-color: $table-editable-field;
+    border-bottom-color: white;
+  }
+}
+
+
+::ng-deep {
+  // cambia el color del indicador de la pestaña
+  .mat-ink-bar {
+    background-color: $primary !important;
+  }
+  // cambia el color del texto de la lista desplegable
+  .mat-option-text {
+    color: $secondary !important;
+  }
+
+  // cambia el texto si hay, como el login 
+  .mat-form-field.mat-focused .mat-form-field-label {
+    color: $primary !important;
+  }
+
+  // cambia la linea de abajo input
+  .mat-focused .mat-form-field-underline .mat-form-field-ripple {
+    background-color: $primary !important;
+  }
+
+  // cambia el borde input
+  .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: $primary !important;
+  }
+}
+
+*:focus {
+  outline: none !important;
+}

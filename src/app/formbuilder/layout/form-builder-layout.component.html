@@ -1,0 +1,44 @@
+<div class="container" cdkDropListGroup>
+
+  <mat-sidenav-container>
+    <mat-sidenav class="components" [opened]="menuComponents" mode="side" #drawerComponents cdkDropList>        
+      <div class="title">Componentes</div>
+      <div class="level1" cdkDrag id="component-container"><span class="material-icons-outlined md-18 menu-item">space_dashboard</span>Container</div>
+      <div class="level1" cdkDrag id="component-label"><span class="material-icons-outlined md-18 menu-item">text_format</span>Label</div>
+      <div class="level1" cdkDrag id="component-input"><span class="material-icons-outlined md-18 menu-item">crop_7_5</span>Input</div>
+      <div class="level1" cdkDrag id="component-textarea"><span class="material-icons-outlined md-18 menu-item">crop_square</span>Textarea</div>
+      <div class="level1" cdkDrag id="component-dropdown"><span class="material-icons-outlined md-18 menu-item">list_alt</span>Dropdown</div>  
+    </mat-sidenav>
+    <mat-sidenav class="properties" [opened]="menuProperties" mode="side" position="end" #drawerProperties>
+      <div class="properties-content">
+        <div class="title">Propiedades</div>
+        <form-builder-properties></form-builder-properties>
+      </div>
+    </mat-sidenav>
+    
+    <div class="side-center">
+      
+      <div class="openclose left" (click)="drawerComponents.toggle(); menuComponents=!menuComponents;">
+        <div class="flex"></div>
+        <div class="icon">            
+          <span *ngIf="menuComponents" class="material-icons-outlined">chevron_left</span>
+          <span *ngIf="!menuComponents" class="material-icons-outlined">chevron_right</span>
+        </div>
+        <div class="flex"></div>
+      </div>
+      
+      <div class="body"><form-builder-editor></form-builder-editor></div> 
+
+      <div class="openclose right" (click)="drawerProperties.toggle(); menuProperties=!menuProperties;">
+        <div class="flex"></div>
+        <div class="icon">
+          <span *ngIf="menuProperties" class="material-icons-outlined">chevron_right</span>
+          <span *ngIf="!menuProperties" class="material-icons-outlined">chevron_left</span>
+        </div>
+        <div class="flex"></div>
+      </div>
+    </div>
+      
+  </mat-sidenav-container>
+  
+</div>

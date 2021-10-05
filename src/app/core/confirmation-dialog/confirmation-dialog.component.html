@@ -1,0 +1,11 @@
+<div style="display: flex; flex-direction: column; height: 250px; width: 100%;">
+    <h1 style="height:50px">{{data.title}}</h1>
+    <div style="flex:1">
+        <p>{{data.body}}</p>
+    </div>
+    <div style="flex:1"></div>
+    <div style="height:50px;text-align: right;">
+        <button mat-button secondary (click)="no()">No</button>
+        <button mat-button primary (click)="yes()" color="primary">Sí</button>
+    </div>
+</div>
