@@ -1,0 +1,34 @@
+.container-component {
+    display:flex; 
+    flex-direction: row;
+
+    gap: 15px;
+    border: 1px dashed #707070;
+    margin: 1px;
+    padding: 5px;
+
+    .options {
+        display:flex;
+        flex-direction: column;
+        visibility:hidden;
+        width: 50px;
+        color:#9f9f9f;
+
+    }    
+    .options span:hover {
+        color:#9f9fcc;
+    }  
+}
+
+
+.container-component:hover {
+    border: 2px dashed #707070;
+    margin: 0px;
+    cursor: pointer;
+
+    .options {
+        visibility:visible;
+    }
+}
+
+
