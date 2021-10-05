@@ -5,7 +5,7 @@ import { FormBuilderLayoutComponent } from './layout/form-builder-layout.compone
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { CoreModule } from '../core/core.module';
 import { FormBuilderEditorComponent } from './editor/form-builder-editor.component';
-import { ContainerComponent } from './plugins/container/container.component';
+import { FormBuilderPluginContainerComponent } from './plugins/container/container.component';
 import { FormBuilderPropertiesComponent } from './properties/form-builder-properties.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -15,16 +15,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { ContainerPropertiesComponent } from './plugins/container/container-properties.component';
-import { LabelComponent } from './plugins/label/label.component';
+import { FormBuilderPluginLabelComponent } from './plugins/label/label.component';
 import { LabelPropertiesComponent } from './plugins/label/label-properties.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { VoidComponent } from './plugins/void/void.component';
-import { InputComponent } from './plugins/input/input.component';
+import { FormBuilderPluginVoidComponent } from './plugins/void/void.component';
+import { FormBuilderPluginInputComponent } from './plugins/input/input.component';
 import { InputPropertiesComponent } from './plugins/input/input-properties.component';
-import { TextareaComponent } from './plugins/textarea/textarea.component';
+import { FormBuilderPluginTextareaComponent } from './plugins/textarea/textarea.component';
 import { TextareaPropertiesComponent } from './plugins/textarea/textarea-properties.component';
-import { SelectComponent } from './plugins/select/select.component';
+import { FormBuilderPluginSelectComponent } from './plugins/select/select.component';
 import { SelectPropertiesComponent } from './plugins/select/select-properties.component';
 
 @NgModule({
@@ -32,12 +32,12 @@ import { SelectPropertiesComponent } from './plugins/select/select-properties.co
     FormBuilderLayoutComponent, 
     FormBuilderEditorComponent,
     FormBuilderPropertiesComponent, 
-    VoidComponent, 
-    ContainerComponent, ContainerPropertiesComponent, 
-    LabelComponent, LabelPropertiesComponent, 
-    InputComponent, InputPropertiesComponent, 
-    TextareaComponent, TextareaPropertiesComponent, 
-    SelectComponent, SelectPropertiesComponent,
+    FormBuilderPluginVoidComponent, 
+    FormBuilderPluginContainerComponent, ContainerPropertiesComponent, 
+    FormBuilderPluginLabelComponent, LabelPropertiesComponent, 
+    FormBuilderPluginInputComponent, InputPropertiesComponent, 
+    FormBuilderPluginTextareaComponent, TextareaPropertiesComponent, 
+    FormBuilderPluginSelectComponent, SelectPropertiesComponent,
   ],
   imports: [
     CommonModule,

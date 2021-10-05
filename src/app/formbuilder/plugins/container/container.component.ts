@@ -8,7 +8,7 @@ import { PLUGINS_CONFIG } from '../plugin-config';
   templateUrl: './container.component.html',
   styleUrls: ['./container.component.scss']
 })
-export class ContainerComponent extends PluginBaseComponent  {
+export class FormBuilderPluginContainerComponent extends PluginBaseComponent  {
 
   @ViewChildren("itemContainer", { read: ViewContainerRef }) 
   private itemContainer: QueryList<ViewContainerRef>;
@@ -53,7 +53,7 @@ export class ContainerComponent extends PluginBaseComponent  {
     let pluginConfig = PLUGINS_CONFIG[component.type];
 
     if (pluginConfig != null) {
-      if (pluginConfig.class == null) pluginConfig.class = ContainerComponent;
+      if (pluginConfig.class == null) pluginConfig.class = FormBuilderPluginContainerComponent;
       this.addComponent(container, pluginConfig.class, component);    
     }
     else 

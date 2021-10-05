@@ -3,11 +3,11 @@ import { EventData } from 'src/app/core/events/EventData';
 import { PluginBaseComponent } from '../plugin-base-component';
 
 @Component({
-  selector: 'app-input',
+  selector: 'form-builder-plugin-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss']
 })
-export class InputComponent extends PluginBaseComponent {
+export class FormBuilderPluginInputComponent extends PluginBaseComponent {
 
   constructor(
     private injector: Injector,

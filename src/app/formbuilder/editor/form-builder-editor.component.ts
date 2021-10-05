@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { EventService } from 'src/app/core/events/event.service';
 import { EventData } from 'src/app/core/events/EventData';
 import { SequentialService } from 'src/app/core/utils/event.service';
-import { ContainerComponent } from '../plugins/container/container.component';
+import { FormBuilderPluginContainerComponent } from '../plugins/container/container.component';
 
 @Component({
   selector: 'form-builder-editor',
@@ -26,7 +26,7 @@ export class FormBuilderEditorComponent implements OnInit, OnDestroy {
   private components = [];
   
   private componentClassMap = {
-    'container': ContainerComponent
+    'container': FormBuilderPluginContainerComponent
   }
 
   constructor(

@@ -3,7 +3,7 @@
     <div style='display:flex; flex:1; flex-direction: {{elementData.direction}}'>        
         <ng-template ngFor let-item [ngForOf]="elementData.components">
             <div *ngIf='item.type == null' style='flex:1'>
-                <plugins-void [elementData]="item"></plugins-void>
+                <form-builder-plugin-void [elementData]="item"></form-builder-plugin-void>
             </div>
             <div *ngIf='item.type != null' style='flex:1'>
                 <ng-template #itemContainer></ng-template>

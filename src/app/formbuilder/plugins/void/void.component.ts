@@ -4,11 +4,11 @@ import { PluginBaseComponent } from '../plugin-base-component';
 import { PLUGINS_CONFIG } from '../plugin-config';
 
 @Component({
-  selector: 'plugins-void',
+  selector: 'form-builder-plugin-void',
   templateUrl: './void.component.html',
   styleUrls: ['./void.component.scss']
 })
-export class VoidComponent extends PluginBaseComponent {
+export class FormBuilderPluginVoidComponent extends PluginBaseComponent {
 
   constructor(
     private injector: Injector,

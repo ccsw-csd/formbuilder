@@ -3,11 +3,11 @@ import { EventData } from 'src/app/core/events/EventData';
 import { PluginBaseComponent } from '../plugin-base-component';
 
 @Component({
-  selector: 'app-label',
+  selector: 'form-builder-plugin-label',
   templateUrl: './label.component.html',
   styleUrls: ['./label.component.scss']
 })
-export class LabelComponent extends PluginBaseComponent {
+export class FormBuilderPluginLabelComponent extends PluginBaseComponent {
   
   constructor(
     private injector: Injector,

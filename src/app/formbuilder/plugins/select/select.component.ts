@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-select',
+  selector: 'form-builder-plugin-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })
-export class SelectComponent implements OnInit {
+export class FormBuilderPluginSelectComponent implements OnInit {
 
   constructor() { }
 
