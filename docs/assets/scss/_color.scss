@@ -1,0 +1,75 @@
+//App colors
+$primary: #12abdb;
+$accent: #46d4ff;
+$warn: #ffb764;
+$error: #ff4040;
+$selected: #0096c4;
+$body: #4d4f5c;
+$icon: #838383;
+$disabled: #dcdcdc;
+$background: #f5f5f5;
+$foreground: #fff;
+$scrollbar: #bebebe;
+$scrollbar-hover: #959595;
+//
+$secondary: #0070ad;
+$dark: #005f93;
+$white: #ffffff;
+$third-light-blue: #59c4e6;
+$hover-blue: #1a7fb5;
+$fill-blue: #ceeef8;
+$secondary-white: #f5f5f5;
+$third-white: #e9e9f0;
+$lightgray: #b2b2b2;
+$darkgrey: #838383;
+$hover-salmon: #4073a3;
+$garnet: #882236;
+
+
+
+
+
+//Card colors
+$primary-link: $primary;
+$secondary-link: #4bb543;
+$status-activo: #4bb543;
+$status-pendiente: #ffa500;
+$status-finalizado: #e0e0e0;
+
+$input-focus: $primary;
+$input-idle: #e9e9f0;
+$input-panel-border: $input-idle;
+
+// Navigation
+$header: $primary;
+$sidebar: $accent;
+
+// Titles
+$title: #838383;
+
+// Inputs
+$input-focus: $primary;
+$input-idle: #e9e9f0;
+$input-panel-border: $input-idle;
+
+// Tables
+$table-border: #dcdcdc;
+$table-header: $background;
+$table-heder-text: $title;
+$table-result: #d1d1d1;
+$table-editable-field: $foreground;
+$table-readonly-field: $background;
+
+
+//Button colors
+$button-color-primary: $primary;
+$button-font-color-primary: $white;
+$button-border-color-primary: $primary;
+
+$button-color-secondary: $white;
+$button-font-color-secondary: $primary;
+$button-border-color-secondary: $primary;
+
+$button-disabled: #eaeaea;
+
+$border-color: #eaeaea;
