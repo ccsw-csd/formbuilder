@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { AceModule } from 'ngx-ace-wrapper';
+import {MatDividerModule} from '@angular/material/divider';
 
 import { FormViewerComponent } from './form-viewer/form-viewer.component';
 import { FormViewerPluginContainerComponent } from './plugins/container/container.component';
@@ -20,11 +21,11 @@ import { FormViewerPluginInputComponent } from './plugins/input/input.component'
 import { FormViewerPluginVoidComponent } from './plugins/void/void.component';
 import { FormViewerPluginTextareaComponent } from './plugins/textarea/textarea.component';
 import { FormViewerPluginSelectComponent } from './plugins/select/select.component';
-
+import { FormViewerPluginDividerComponent } from './plugins/divider/divider.component';
 
 
 @NgModule({
-  declarations: [FormViewerComponent, FormViewerPluginContainerComponent, FormViewerPluginLabelComponent, FormViewerPluginInputComponent, FormViewerPluginVoidComponent, FormViewerPluginTextareaComponent, FormViewerPluginSelectComponent],
+  declarations: [FormViewerComponent, FormViewerPluginContainerComponent, FormViewerPluginLabelComponent, FormViewerPluginInputComponent, FormViewerPluginVoidComponent, FormViewerPluginTextareaComponent, FormViewerPluginSelectComponent, FormViewerPluginDividerComponent],
   imports: [
     CommonModule,
     CoreModule,
@@ -40,6 +41,7 @@ import { FormViewerPluginSelectComponent } from './plugins/select/select.compone
     MatIconModule,
     HttpClientModule,
     AceModule,
+    MatDividerModule,
   ],
   providers: [
     HttpClientModule,

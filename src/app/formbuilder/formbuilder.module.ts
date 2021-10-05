@@ -19,6 +19,7 @@ import { FormBuilderPluginLabelComponent } from './plugins/label/label.component
 import { LabelPropertiesComponent } from './plugins/label/label-properties.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
 import { FormBuilderPluginVoidComponent } from './plugins/void/void.component';
 import { FormBuilderPluginInputComponent } from './plugins/input/input.component';
 import { InputPropertiesComponent } from './plugins/input/input-properties.component';
@@ -26,6 +27,7 @@ import { FormBuilderPluginTextareaComponent } from './plugins/textarea/textarea.
 import { TextareaPropertiesComponent } from './plugins/textarea/textarea-properties.component';
 import { FormBuilderPluginSelectComponent } from './plugins/select/select.component';
 import { SelectPropertiesComponent } from './plugins/select/select-properties.component';
+import { FormBuilderPluginDividerComponent } from './plugins/divider/divider.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +35,12 @@ import { SelectPropertiesComponent } from './plugins/select/select-properties.co
     FormBuilderEditorComponent,
     FormBuilderPropertiesComponent, 
     FormBuilderPluginVoidComponent, 
+    FormBuilderPluginDividerComponent,
     FormBuilderPluginContainerComponent, ContainerPropertiesComponent, 
     FormBuilderPluginLabelComponent, LabelPropertiesComponent, 
     FormBuilderPluginInputComponent, InputPropertiesComponent, 
     FormBuilderPluginTextareaComponent, TextareaPropertiesComponent, 
-    FormBuilderPluginSelectComponent, SelectPropertiesComponent,
+    FormBuilderPluginSelectComponent, SelectPropertiesComponent, 
   ],
   imports: [
     CommonModule,
@@ -54,6 +57,7 @@ import { SelectPropertiesComponent } from './plugins/select/select-properties.co
     MatInputModule,  
     MatButtonModule,
     MatIconModule,  
+    MatDividerModule,
   ],
   exports: [
     FormBuilderLayoutComponent

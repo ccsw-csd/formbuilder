@@ -3,9 +3,10 @@
 </div>
 
 <mat-tab-group>
-    <mat-tab label="Formulario">        
+    <mat-tab label="Formulario">   
         <div class="form-body">
             <h1>{{data.name}}</h1>
+            <mat-divider></mat-divider>
             <form-viewer-plugin-container [data]="data.components[0]" [formData]="formData"></form-viewer-plugin-container>
         </div>        
     </mat-tab>

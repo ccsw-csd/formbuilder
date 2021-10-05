@@ -1,4 +1,5 @@
 import { Component, ComponentFactoryResolver, Input, OnInit, QueryList, Type, ViewChildren, ViewContainerRef } from '@angular/core';
+import { FormViewerPluginDividerComponent } from '../divider/divider.component';
 import { FormViewerPluginInputComponent } from '../input/input.component';
 import { FormViewerPluginLabelComponent } from '../label/label.component';
 import { FormViewerPluginSelectComponent } from '../select/select.component';
@@ -19,6 +20,7 @@ export class FormViewerPluginContainerComponent implements OnInit {
 
   PLUGINS_CONFIG = {
     'container': {class: null},
+    'divider': {class: FormViewerPluginDividerComponent},
     'label': {class: FormViewerPluginLabelComponent},
     'input': {class: FormViewerPluginInputComponent},
     'textarea': {class: FormViewerPluginTextareaComponent},

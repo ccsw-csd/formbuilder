@@ -1,4 +1,5 @@
 import { ContainerPropertiesComponent } from "./container/container-properties.component";
+import { FormBuilderPluginDividerComponent } from "./divider/divider.component";
 import { InputPropertiesComponent } from "./input/input-properties.component";
 import { FormBuilderPluginInputComponent } from "./input/input.component";
 import { LabelPropertiesComponent } from "./label/label-properties.component";
@@ -11,6 +12,9 @@ import { FormBuilderPluginTextareaComponent } from "./textarea/textarea.componen
 export const PLUGINS_CONFIG = {
     'container': {class: null, configClass: ContainerPropertiesComponent, defaultConfig: {
         type:'container', direction: 'row', components: [{},{}]}
+    },
+    'divider': {class: FormBuilderPluginDividerComponent, defaultConfig: {
+        type:'divider'}
     },
     'label': {class: FormBuilderPluginLabelComponent, configClass: LabelPropertiesComponent, defaultConfig: {
         type:'label', value: 'Label', style: ''}
@@ -30,43 +34,67 @@ export const PLUGINS_CONFIG = {
 
 export var formMetadata = {
     id: 1,
-    name: 'Prueba',
+    name: 'Formulario de prueba en desarrollo',
     openPreview: false,
-    openPropertiesWhenAddComponent: true,
     components: [
         {
         type: 'container',
         direction: 'column',
         components: [
-            PLUGINS_CONFIG['label'].defaultConfig,
-            PLUGINS_CONFIG['input'].defaultConfig,
-            PLUGINS_CONFIG['textarea'].defaultConfig,
+            cloneConfig('label', {value:'Este formulario sirve para ... Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', style: ''}),
+            cloneConfig('label', {value:'Datos del alumno', style: 'font-size:20px; font-weight: bold; color: #838383;'}),
+            {type:'divider'},
             {
-                type:'select', required: true, name:'provincia', text: 'Seleccione Provincia', value: null, style: 'flex: 1;',
-                rest: {
-                    url: 'https://raw.githubusercontent.com/IagoLast/pselect/master/data/provincias.json', 
-                    method: 'GET',
-                    dataRoot: null,
-                    propertyId: 'id',
-                    propertyValue: 'nm',
-                    preHook: 'items.sort((a,b)=>a.nm.localeCompare(b.nm))',
-                }
-            },
-            {
-                type:'select', required: true, name:'municipio', text: 'Seleccione Municipio', value: null, style: 'flex: 1;',
-                dependency: 'provincia',
-                rest: {
-                    url: 'https://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json', 
-                    method: 'GET',
-                    dataRoot: null,
-                    propertyId: 'id',
-                    propertyValue: 'nm',
-                    preHook: 'items = items.filter(element => element.id.startsWith(this.formData.provincia))',
-                }
+                type: 'container',
+                direction: 'row',
+                components: [
+                    cloneConfig('input', {text:'Nombre', name: 'nombre'}),
+                    cloneConfig('input', {text:'Apellido 1', name: 'apellido1'}),
+                    cloneConfig('input', {text:'Apellido 2', name: 'apellido2'}),
+                ]
             },            
+            cloneConfig('textarea', {text: 'Dirección Postal', name: 'direccion'}),
+            {
+                type: 'container',
+                direction: 'row',
+                components: [
+                    cloneConfig('select', {name:'provincia', text: 'Seleccione Provincia', rest: {
+                        url: 'https://raw.githubusercontent.com/IagoLast/pselect/master/data/provincias.json', 
+                        method: 'GET',
+                        dataRoot: null,
+                        propertyId: 'id',
+                        propertyValue: 'nm',
+                        preHook: 'items.sort((a,b)=>a.nm.localeCompare(b.nm))',
+                    }}),
+                    cloneConfig('select', {name:'municipio', text: 'Seleccione Municipio', dependency: 'provincia', rest: {
+                        url: 'https://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json', 
+                        method: 'GET',
+                        dataRoot: null,
+                        propertyId: 'id',
+                        propertyValue: 'nm',
+                        preHook: 'items = items.filter(element => element.id.startsWith(this.formData.provincia))',
+                    }}),
+                ]
+            },
+            {},
+            cloneConfig('label', {value:'Datos de la solicitud', style: 'font-size:20px; font-weight: bold; color: #838383;'}),
+            {type:'divider'},
+            {
+                type: 'container',
+                direction: 'row',
+                components: [
+                    cloneConfig('input', {text:'Fecha solicitud', name: 'fecha', dataType:'date'}),
+                    cloneConfig('input', {text:'Departamento', name: 'departamento'}),
+                ]
+            },
             {}
         ]
         }
     ]
 };
+
+function cloneConfig(key, objectValue) {
+    let newObject = Object.assign({}, PLUGINS_CONFIG[key].defaultConfig);
+    return Object.assign(newObject, objectValue);
+}
   
