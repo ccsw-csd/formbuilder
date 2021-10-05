@@ -1,16 +1,18 @@
 import { Component, ComponentFactoryResolver, Input, OnInit, QueryList, Type, ViewChildren, ViewContainerRef } from '@angular/core';
 import { FormViewerPluginInputComponent } from '../input/input.component';
 import { FormViewerPluginLabelComponent } from '../label/label.component';
+import { FormViewerPluginSelectComponent } from '../select/select.component';
+import { FormViewerPluginTextareaComponent } from '../textarea/textarea.component';
 
 @Component({
   selector: 'form-viewer-plugin-container',
   templateUrl: './container.component.html',
   styleUrls: ['./container.component.scss']
 })
-export class ContainerComponent implements OnInit {
+export class FormViewerPluginContainerComponent implements OnInit {
 
-  @Input() 
-  data: any;
+  @Input() data: any;
+  @Input() formData: any;
 
   @ViewChildren("itemContainer", { read: ViewContainerRef }) 
   private itemContainer: QueryList<ViewContainerRef>;
@@ -19,6 +21,8 @@ export class ContainerComponent implements OnInit {
     'container': {class: null},
     'label': {class: FormViewerPluginLabelComponent},
     'input': {class: FormViewerPluginInputComponent},
+    'textarea': {class: FormViewerPluginTextareaComponent},
+    'select': {class: FormViewerPluginSelectComponent},
   };
 
   constructor(
@@ -51,7 +55,7 @@ export class ContainerComponent implements OnInit {
     let pluginConfig = this.PLUGINS_CONFIG[component.type];
 
     if (pluginConfig != null) {
-      if (pluginConfig.class == null) pluginConfig.class = ContainerComponent;
+      if (pluginConfig.class == null) pluginConfig.class = FormViewerPluginContainerComponent;
       this.addComponent(container, pluginConfig.class, component);    
     }
     else 
@@ -65,6 +69,7 @@ export class ContainerComponent implements OnInit {
     const component = container.createComponent(componentFactory);
 
     component.instance.data = data;
+    component.instance.formData = this.formData;
     component.instance.componentClass = componentClass;
   }
 

@@ -17,13 +17,13 @@ export const PLUGINS_CONFIG = {
         type:'label', value: 'Texto de prueba', style: ''}
     },
     'input': {class: FormBuilderPluginInputComponent, configClass: InputPropertiesComponent, defaultConfig: {
-        type:'input', dataType: 'text', required: true, name:'', text: 'Nombre por defecto', value: '', style: 'flex: 1;'}
+        type:'input', dataType: 'text', required: true, name:'', text: 'Nombre por defecto', value: null, style: 'flex: 1;'}
     },
     'textarea': {class: FormBuilderPluginTextareaComponent, configClass: TextareaPropertiesComponent, defaultConfig: {
-        type:'textarea', required: true, name:'', text: 'Nombre por defecto', value: '', style: 'flex: 1;'}
+        type:'textarea', required: true, name:'', text: 'Nombre por defecto', value: null, style: 'flex: 1;'}
     },
     'select': {class: FormBuilderPluginSelectComponent, configClass: SelectPropertiesComponent, defaultConfig: {
-        type:'select', required: true, name:'', text: 'Nombre por defecto', value: '', style: 'flex: 1;'}
+        type:'select', required: true, name:'', text: 'Nombre por defecto', value: null, style: 'flex: 1;'}
     },
 };
   
@@ -32,6 +32,7 @@ export const PLUGINS_CONFIG = {
 export var formMetadata = {
     id: 1,
     name: 'Prueba',
+    openPreview: true,
     components: [
         {
         type: 'container',
@@ -40,7 +41,29 @@ export var formMetadata = {
             PLUGINS_CONFIG['label'].defaultConfig,
             PLUGINS_CONFIG['input'].defaultConfig,
             PLUGINS_CONFIG['textarea'].defaultConfig,
-            PLUGINS_CONFIG['select'].defaultConfig,
+            {
+                type:'select', required: true, name:'provincia', text: 'Seleccione Provincia', value: null, style: 'flex: 1;',
+                rest: {
+                    url: 'https://raw.githubusercontent.com/IagoLast/pselect/master/data/provincias.json', 
+                    method: 'GET',
+                    dataRoot: null,
+                    propertyId: 'id',
+                    propertyValue: 'nm',
+                    preHook: 'items.sort((a,b)=>a.nm.localeCompare(b.nm))',
+                }
+            },
+            {
+                type:'select', required: true, name:'municipio', text: 'Seleccione Municipio', value: null, style: 'flex: 1;',
+                dependency: 'provincia',
+                rest: {
+                    url: 'https://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json', 
+                    method: 'GET',
+                    dataRoot: null,
+                    propertyId: 'id',
+                    propertyValue: 'nm',
+                    preHook: 'items = items.filter(element => element.id.startsWith(this.formData.provincia))',
+                }
+            },            
             {}
         ]
         }

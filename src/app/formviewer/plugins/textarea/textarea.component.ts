@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-textarea',
+  selector: 'form-viewer-plugin-textarea',
   templateUrl: './textarea.component.html',
   styleUrls: ['./textarea.component.scss']
 })
-export class TextareaComponent implements OnInit {
+export class FormViewerPluginTextareaComponent implements OnInit {
+
+  @Input() data: any;
 
   constructor() { }
 

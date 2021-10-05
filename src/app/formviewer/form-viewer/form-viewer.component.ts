@@ -8,12 +8,16 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class FormViewerComponent implements OnInit {
 
+  formData: any = {};
+  dataString: string = '';
+
   constructor(
     public dialogo: MatDialogRef<FormViewerComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   ngOnInit(): void {
+    this.dataString = JSON.stringify(this.data, null, '\t');
   }
 
   close(): void {

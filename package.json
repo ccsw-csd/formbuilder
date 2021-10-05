@@ -21,8 +21,10 @@
     "@angular/platform-browser": "~11.0.5",
     "@angular/platform-browser-dynamic": "~11.0.5",
     "@angular/router": "~11.0.5",
+    "ace-builds": "^1.4.13",
     "ag-grid-angular": "^25.3.0",
     "ag-grid-community": "^25.3.0",
+    "ngx-ace-wrapper": "^11.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

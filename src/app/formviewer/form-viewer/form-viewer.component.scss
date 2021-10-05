@@ -1,10 +1,5 @@
-div.title {
-    display:flex; 
-    flex-direction: row;
-
-    h1 {
-        flex:1;
-    }
+div.close {
+    text-align: end;
 
     span {
         color: #838383;
@@ -12,8 +7,18 @@ div.title {
     }
 }
 
+
 div.form-body {
-    height: calc(90vh - 110px);
-    margin-top: 10px;
+    display:flex;
+    flex-direction: column;
+    height: calc(90vh - 130px);
+    margin: 0px;
+    padding: 15px;
     overflow: auto;
 }
+
+
+mat-tab-group {
+    height: calc(90vh - 80px);
+}
+

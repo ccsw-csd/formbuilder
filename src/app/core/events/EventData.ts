@@ -23,5 +23,8 @@ export class EventData {
         return this.data;
     }
 
+    public getSenderId() : string {
+        return this.senderId;
+    }
 
 }

@@ -10,18 +10,21 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
+import { AceModule } from 'ngx-ace-wrapper';
+
 import { FormViewerComponent } from './form-viewer/form-viewer.component';
-import { ContainerComponent } from './plugins/container/container.component';
+import { FormViewerPluginContainerComponent } from './plugins/container/container.component';
 import { FormViewerPluginLabelComponent } from './plugins/label/label.component';
 import { FormViewerPluginInputComponent } from './plugins/input/input.component';
 import { FormViewerPluginVoidComponent } from './plugins/void/void.component';
-import { TextareaComponent } from './plugins/textarea/textarea.component';
-import { SelectComponent } from './plugins/select/select.component';
+import { FormViewerPluginTextareaComponent } from './plugins/textarea/textarea.component';
+import { FormViewerPluginSelectComponent } from './plugins/select/select.component';
 
 
 
 @NgModule({
-  declarations: [FormViewerComponent, ContainerComponent, FormViewerPluginLabelComponent, FormViewerPluginInputComponent, FormViewerPluginVoidComponent, TextareaComponent, SelectComponent],
+  declarations: [FormViewerComponent, FormViewerPluginContainerComponent, FormViewerPluginLabelComponent, FormViewerPluginInputComponent, FormViewerPluginVoidComponent, FormViewerPluginTextareaComponent, FormViewerPluginSelectComponent],
   imports: [
     CommonModule,
     CoreModule,
@@ -34,7 +37,12 @@ import { SelectComponent } from './plugins/select/select.component';
     MatFormFieldModule,
     MatInputModule,  
     MatButtonModule,
-    MatIconModule,  
-  ]
+    MatIconModule,
+    HttpClientModule,
+    AceModule,
+  ],
+  providers: [
+    HttpClientModule,
+  ],
 })
 export class FormViewerModule { }

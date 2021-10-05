@@ -1,7 +1,15 @@
-<div class="title">
-    <h1>{{data.name}}</h1>
-    <span class="material-icons-outlined md-18 close" (click)="close()">close</span>
+<div class="close">
+    <span class="material-icons-outlined md-18" (click)="close()">close</span>
 </div>
-<div class="form-body">
-    <form-viewer-plugin-container [data]="data.components[0]"></form-viewer-plugin-container>
-</div>
+
+<mat-tab-group>
+    <mat-tab label="Formulario">        
+        <div class="form-body">
+            <h1>{{data.name}}</h1>
+            <form-viewer-plugin-container [data]="data.components[0]" [formData]="formData"></form-viewer-plugin-container>
+        </div>        
+    </mat-tab>
+    <mat-tab label="Código">
+        <ace [config]="{}" [(value)]="dataString"></ace>
+    </mat-tab>
+</mat-tab-group>
