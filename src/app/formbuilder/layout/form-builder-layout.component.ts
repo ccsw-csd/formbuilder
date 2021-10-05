@@ -37,8 +37,7 @@ export class FormBuilderLayoutComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.formMetadata = formMetadata;
-    this.preview();
+    this.formMetadata = formMetadata;    
   }
   
   ngOnDestroy() {

@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
+import { EventData } from 'src/app/core/events/EventData';
+import { PluginBaseComponent } from '../plugin-base-component';
 
 @Component({
   selector: 'form-builder-plugin-textarea',
   templateUrl: './textarea.component.html',
   styleUrls: ['./textarea.component.scss']
 })
-export class FormBuilderPluginTextareaComponent implements OnInit {
+export class FormBuilderPluginTextareaComponent extends PluginBaseComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(
+    private injector: Injector,
+    ) { 
+      super(injector, 'Textarea');
+    }
+    
+    ngOnInit(): void {
+    }
+    
+    receiveEvent(event: EventData) {
+    }
 
 }

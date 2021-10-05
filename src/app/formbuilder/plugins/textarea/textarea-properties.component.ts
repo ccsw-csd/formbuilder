@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-textarea-properties',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextareaPropertiesComponent implements OnInit {
 
+  @Input() data: any;
+  
   constructor() { }
 
   ngOnInit(): void {
