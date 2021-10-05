@@ -22,16 +22,22 @@ import { MatIconModule } from '@angular/material/icon';
 import { VoidComponent } from './plugins/void/void.component';
 import { InputComponent } from './plugins/input/input.component';
 import { InputPropertiesComponent } from './plugins/input/input-properties.component';
+import { TextareaComponent } from './plugins/textarea/textarea.component';
+import { TextareaPropertiesComponent } from './plugins/textarea/textarea-properties.component';
+import { SelectComponent } from './plugins/select/select.component';
+import { SelectPropertiesComponent } from './plugins/select/select-properties.component';
 
 @NgModule({
   declarations: [
     FormBuilderLayoutComponent, 
     FormBuilderEditorComponent,
     FormBuilderPropertiesComponent, 
-    ContainerComponent, ContainerPropertiesComponent, 
     VoidComponent, 
+    ContainerComponent, ContainerPropertiesComponent, 
     LabelComponent, LabelPropertiesComponent, 
-    InputComponent, InputPropertiesComponent,
+    InputComponent, InputPropertiesComponent, 
+    TextareaComponent, TextareaPropertiesComponent, 
+    SelectComponent, SelectPropertiesComponent,
   ],
   imports: [
     CommonModule,

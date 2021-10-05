@@ -14,7 +14,7 @@ import { SequentialService } from "src/app/core/utils/event.service";
         </div>
     `
 })
-export abstract class PluginComponent implements OnInit, OnDestroy {
+export abstract class PluginBaseComponent implements OnInit, OnDestroy {
 
     @Input() data: any;
     @Input() elementData: any;

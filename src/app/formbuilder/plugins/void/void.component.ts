@@ -1,6 +1,6 @@
 import { Component, Injector } from '@angular/core';
 import { EventData } from 'src/app/core/events/EventData';
-import { PluginComponent } from '../plugin-component';
+import { PluginBaseComponent } from '../plugin-base-component';
 import { PLUGINS_CONFIG } from '../plugin-config';
 
 @Component({
@@ -8,7 +8,7 @@ import { PLUGINS_CONFIG } from '../plugin-config';
   templateUrl: './void.component.html',
   styleUrls: ['./void.component.scss']
 })
-export class VoidComponent extends PluginComponent {
+export class VoidComponent extends PluginBaseComponent {
 
   constructor(
     private injector: Injector,

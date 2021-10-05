@@ -1,0 +1,6 @@
+<div style="flex: 1; display: flex; margin: 10px 0px 10px 0px;">
+    <mat-form-field appearance="outline" style="{{data.style}}">        
+        <mat-label>{{data.text}}</mat-label>
+        <input matInput type="{{data.dataType}}" [(ngModel)]="data.value" placeholder="{{data.text}}" required="{{data.required}}"/>
+    </mat-form-field>
+</div>

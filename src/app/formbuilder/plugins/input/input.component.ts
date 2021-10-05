@@ -1,13 +1,13 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { EventData } from 'src/app/core/events/EventData';
-import { PluginComponent } from '../plugin-component';
+import { PluginBaseComponent } from '../plugin-base-component';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss']
 })
-export class InputComponent extends PluginComponent {
+export class InputComponent extends PluginBaseComponent {
 
   constructor(
     private injector: Injector,

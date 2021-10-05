@@ -1,8 +1,11 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
 import { EventService } from 'src/app/core/events/event.service';
 import { EventData } from 'src/app/core/events/EventData';
+import { FormViewerComponent } from 'src/app/formviewer/form-viewer/form-viewer.component';
+import { formMetadata } from '../plugins/plugin-config';
 
 @Component({
   selector: 'form-builder', 
@@ -19,24 +22,23 @@ export class FormBuilderLayoutComponent implements OnInit, OnDestroy {
   @ViewChild('drawerProperties') 
   private drawerProperties: MatSidenav;
 
+  formMetadata: any;
+
 
   constructor(
-    private eventService: EventService
+    private eventService: EventService,
+    private matDialog: MatDialog,
   ) {
 
     this.subscription = eventService.eventSourceObservable$.subscribe(      
       event => {
         if (event.isForMe(this.COMPONENT_ID)) this.receiveEvent(event);
-      });
-  }
-
-
-  ngAfterViewInit(): void {
-
-
+    });
   }
 
   ngOnInit() {
+    this.formMetadata = formMetadata;
+    this.preview();
   }
   
   ngOnDestroy() {
@@ -51,6 +53,24 @@ export class FormBuilderLayoutComponent implements OnInit, OnDestroy {
     }
     else
       console.error('recibido '+this.COMPONENT_ID, event.getData());
+  }
+
+  preview(): void {
+    
+    this.matDialog.open(FormViewerComponent, {
+      data:this.formMetadata,
+      height: '90%',
+      width: '90%',
+    });    
+  
+  }
+
+  close(): void {
+
+  }
+
+  save(): void {
+
   }
 
 }

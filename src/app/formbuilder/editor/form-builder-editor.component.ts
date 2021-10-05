@@ -1,10 +1,9 @@
-import { Component, ComponentFactoryResolver, OnDestroy, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, Input, OnDestroy, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { EventService } from 'src/app/core/events/event.service';
 import { EventData } from 'src/app/core/events/EventData';
 import { SequentialService } from 'src/app/core/utils/event.service';
 import { ContainerComponent } from '../plugins/container/container.component';
-import { formMetadata } from '../plugins/plugin-config';
 
 @Component({
   selector: 'form-builder-editor',
@@ -12,12 +11,17 @@ import { formMetadata } from '../plugins/plugin-config';
   styleUrls: ['./form-builder-editor.component.scss']
 })
 export class FormBuilderEditorComponent implements OnInit, OnDestroy {
+  
+  @Input()
+  formMetadata : any;
+
+  @ViewChild('container', {read: ViewContainerRef}) 
+  private container: ViewContainerRef;
 
   private subscription: Subscription;
   private COMPONENT_ID : string = 'Workspace';
 
-  @ViewChild('container', {read: ViewContainerRef}) 
-  private container: ViewContainerRef;
+
 
   private components = [];
   
@@ -40,7 +44,7 @@ export class FormBuilderEditorComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.loadScreen(formMetadata);
+      this.loadScreen(this.formMetadata);
     }, 1);
   }
 
@@ -53,7 +57,7 @@ export class FormBuilderEditorComponent implements OnInit, OnDestroy {
   private receiveEvent(event : EventData) {
     if (event.getData().action == 'refresh') { 
       this.sequentialService.reset();
-      this.loadScreen(formMetadata);
+      this.loadScreen(this.formMetadata);
     }
     else
       console.error('recibido '+this.COMPONENT_ID, event.getData());

@@ -1,0 +1,19 @@
+div.title {
+    display:flex; 
+    flex-direction: row;
+
+    h1 {
+        flex:1;
+    }
+
+    span {
+        color: #838383;
+        cursor: pointer;
+    }
+}
+
+div.form-body {
+    height: calc(90vh - 110px);
+    margin-top: 10px;
+    overflow: auto;
+}

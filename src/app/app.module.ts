@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { FormBuilderModule } from './formbuilder/formbuilder.module';
+import { FormViewerModule } from './formviewer/formviewer.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormBuilderModule } from './formbuilder/formbuilder.module';
     BrowserAnimationsModule,
     CoreModule,
     FormBuilderModule,
+    FormViewerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
