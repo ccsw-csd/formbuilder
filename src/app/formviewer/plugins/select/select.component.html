@@ -1,5 +1,5 @@
 <div class="container-component">
-    <mat-form-field appearance="outline" style="{{data.style}}">        
+    <mat-form-field style="{{data.style}}">        
         <mat-label>{{data.text}}</mat-label>
         <mat-select disabled="{{allDependenciesFilled()==false}}" placeholder="{{data.text}}" readonly required="{{data.required}}" [(value)]="formData[data.name]" (selectionChange)="selectionChange()">
             <mat-option *ngFor="let item of optionsData" [value]="item.id">{{item.value}}</mat-option>

@@ -30,7 +30,7 @@
       
       <div class="body">
         <div class="body-header">
-          <mat-form-field appearance="outline" style="flex: 1;">
+          <mat-form-field style="flex: 1;">
             <mat-label>Nombre del formulario</mat-label>
             <input matInput [(ngModel)]="formMetadata.name" placeholder="Nombre del formulario" />
           </mat-form-field>
@@ -40,7 +40,9 @@
           <button mat-button primary (click)="save()" color="primary">Guardar</button>
 
         </div>
-        <form-builder-editor [formMetadata]="formMetadata"></form-builder-editor>
+        <div class="body-content">
+          <form-builder-editor [formMetadata]="formMetadata"></form-builder-editor>
+        </div>
       </div> 
 
       <div class="openclose right" (click)="drawerProperties.toggle(); menuProperties=!menuProperties;">

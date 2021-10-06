@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { FormBuilderModule } from './formbuilder/formbuilder.module';
 import { FormViewerModule } from './formviewer/formviewer.module';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { FormViewerModule } from './formviewer/formviewer.module';
     FormBuilderModule,
     FormViewerModule,
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'standard'}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
