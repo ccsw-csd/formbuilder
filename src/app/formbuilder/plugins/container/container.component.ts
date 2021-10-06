@@ -20,13 +20,13 @@ export class FormBuilderPluginContainerComponent extends PluginBaseComponent  {
     super(injector, 'Container');
    }
 
-   ngOnInit() {
-      setTimeout(() => {
-        this.creaComponentes(); 
-      }, 1);
-   }
+  ngOnInit() {
+    Promise.resolve().then(() => {
+      this.creaComponentes(); 
+    });
+  }
 
-   creaComponentes() {
+  creaComponentes() {
     if (this.itemContainer == null) return;
 
     let indexItemContainer = 0;
@@ -38,7 +38,7 @@ export class FormBuilderPluginContainerComponent extends PluginBaseComponent  {
         indexItemContainer++;
       }
 
-    });
+  });
 
   }
 

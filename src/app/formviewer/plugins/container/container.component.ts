@@ -32,9 +32,9 @@ export class FormViewerPluginContainerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    setTimeout(() => {
+    Promise.resolve().then(() => {
       this.creaComponentes(); 
-    }, 1);
+    });
   }
 
   creaComponentes() {

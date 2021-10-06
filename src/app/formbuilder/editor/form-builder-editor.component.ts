@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, Input, OnDestroy, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { EventService } from 'src/app/formbuilder/services/event.service';
 import { EventData } from 'src/app/core/model/EventData';
@@ -10,7 +10,7 @@ import { FormBuilderPluginContainerComponent } from '../plugins/container/contai
   templateUrl: './form-builder-editor.component.html',
   styleUrls: ['./form-builder-editor.component.scss']
 })
-export class FormBuilderEditorComponent implements OnInit, OnDestroy {
+export class FormBuilderEditorComponent implements OnInit, OnChanges, OnDestroy {
   
   @Input()
   formMetadata : any;
@@ -40,12 +40,13 @@ export class FormBuilderEditorComponent implements OnInit, OnDestroy {
         if (event.isForMe(this.COMPONENT_ID)) this.receiveEvent(event);
     });
   }
+  ngOnChanges(changes: SimpleChanges): void {    
+    if (changes.formMetadata)
+      this.loadScreen(this.formMetadata);
+  }
 
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.loadScreen(this.formMetadata);
-    }, 1);
   }
 
   ngOnDestroy() {
@@ -67,12 +68,11 @@ export class FormBuilderEditorComponent implements OnInit, OnDestroy {
   private loadScreen(data : any) : void {
     this.removeAllComponents();
 
-    setTimeout(() =>{
+    if (data != null && data.components != null) {
       data.components.forEach(component => {
         this.generateComponent(component);
       });      
-    }, 1);
-    
+    }
   }
 
   private generateComponent(component : any) : void {
@@ -82,10 +82,7 @@ export class FormBuilderEditorComponent implements OnInit, OnDestroy {
       this.addComponent(componentClass, component);    
     else 
       console.error('Error al construir elemento editor', component);
-
   }
-
-
   
 
   private addComponent(componentClass: Type<any>, data:any) {

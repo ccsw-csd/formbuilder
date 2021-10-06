@@ -6,6 +6,7 @@ import { EventService } from 'src/app/formbuilder/services/event.service';
 import { EventData } from 'src/app/core/model/EventData';
 import { FormViewerComponent } from 'src/app/formviewer/form-viewer/form-viewer.component';
 import { formMetadata } from '../plugin-config';
+import { FormBuilderService } from '../services/formbuilder.service';
 
 @Component({
   selector: 'form-builder', 
@@ -22,12 +23,13 @@ export class FormBuilderLayoutComponent implements OnInit, OnDestroy {
   @ViewChild('drawerProperties') 
   private drawerProperties: MatSidenav;
 
-  formMetadata: any;
+  formMetadata: any = {};
 
 
   constructor(
     private eventService: EventService,
     private matDialog: MatDialog,
+    private formBuilderService : FormBuilderService,
   ) {
 
     this.subscription = eventService.eventSourceObservable$.subscribe(      
@@ -37,8 +39,13 @@ export class FormBuilderLayoutComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.formMetadata = formMetadata;  
-    if (this.formMetadata.openPreview) this.preview();  
+
+    Promise.resolve().then(() => {
+      this.formBuilderService.loadFormMetadata(1).subscribe(formMetadata => {
+        this.formMetadata = formMetadata;  
+        if (this.formMetadata.openPreview) this.preview();  
+      });
+    });
   }
   
   ngOnDestroy() {

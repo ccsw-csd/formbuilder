@@ -35,7 +35,7 @@ export const PLUGINS_CONFIG = {
 export var formMetadata = {
     id: 1,
     name: 'Formulario de prueba en desarrollo',
-    openPreview: true,
+    openPreview: false,
     components: [
         {
         type: 'container',
