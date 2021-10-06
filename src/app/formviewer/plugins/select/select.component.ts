@@ -28,6 +28,17 @@ export class FormViewerPluginSelectComponent implements OnInit, OnDestroy {
     });
   }
 
+  ngOnInit(): void {
+    if (this.data.name)
+      this.formData[this.data.name] = this.data.value;
+      
+    this.loadData();
+  }
+  
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  } 
+
   receiveEvent(event : EventData) {
 
     if (this.data.dependency != null) {
@@ -37,29 +48,15 @@ export class FormViewerPluginSelectComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  } 
-
-
   selectionChange(): void {
     if (!this.data.name) return;
 
     this.eventService.sendEvent({action:'change'}, this.data.name);
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('change', changes);
-  }
+  private loadData(): void {
+    console.log(this.formData);
 
-  ngOnInit(): void {
-    if (this.data.name)
-      this.formData[this.data.name] = this.data.value;
-      
-    this.loadData();
-  }
-
-  loadData(): void {
     if (this.allDependenciesFilled()) {
       this.restDataLoaderService.loadData(this.data.rest.url, this.data.rest.method).subscribe(result => {
         this.transformData(result);

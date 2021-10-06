@@ -1,13 +1,13 @@
-import { ContainerPropertiesComponent } from "./container/container-properties.component";
-import { FormBuilderPluginDividerComponent } from "./divider/divider.component";
-import { InputPropertiesComponent } from "./input/input-properties.component";
-import { FormBuilderPluginInputComponent } from "./input/input.component";
-import { LabelPropertiesComponent } from "./label/label-properties.component";
-import { FormBuilderPluginLabelComponent } from "./label/label.component";
-import { SelectPropertiesComponent } from "./select/select-properties.component";
-import { FormBuilderPluginSelectComponent } from "./select/select.component";
-import { TextareaPropertiesComponent } from "./textarea/textarea-properties.component";
-import { FormBuilderPluginTextareaComponent } from "./textarea/textarea.component";
+import { ContainerPropertiesComponent } from "./plugins/container/container-properties.component";
+import { FormBuilderPluginDividerComponent } from "./plugins/divider/divider.component";
+import { InputPropertiesComponent } from "./plugins/input/input-properties.component";
+import { FormBuilderPluginInputComponent } from "./plugins/input/input.component";
+import { LabelPropertiesComponent } from "./plugins/label/label-properties.component";
+import { FormBuilderPluginLabelComponent } from "./plugins/label/label.component";
+import { SelectPropertiesComponent } from "./plugins/select/select-properties.component";
+import { FormBuilderPluginSelectComponent } from "./plugins/select/select.component";
+import { TextareaPropertiesComponent } from "./plugins/textarea/textarea-properties.component";
+import { FormBuilderPluginTextareaComponent } from "./plugins/textarea/textarea.component";
 
 export const PLUGINS_CONFIG = {
     'container': {class: null, configClass: ContainerPropertiesComponent, defaultConfig: {
@@ -35,7 +35,7 @@ export const PLUGINS_CONFIG = {
 export var formMetadata = {
     id: 1,
     name: 'Formulario de prueba en desarrollo',
-    openPreview: false,
+    openPreview: true,
     components: [
         {
         type: 'container',
@@ -48,12 +48,12 @@ export var formMetadata = {
                 type: 'container',
                 direction: 'row',
                 components: [
-                    cloneConfig('input', {text:'Nombre', name: 'nombre'}),
+                    cloneConfig('input', {text:'Nombre', name: 'nombre', value:'Nombre de prueba'}),
                     cloneConfig('input', {text:'Apellido 1', name: 'apellido1'}),
                     cloneConfig('input', {text:'Apellido 2', name: 'apellido2'}),
                 ]
             },            
-            cloneConfig('textarea', {text: 'Dirección Postal', name: 'direccion'}),
+            cloneConfig('textarea', {text: 'Dirección Postal', name: 'direccion', value: 'Dirección de prueba'}),
             {
                 type: 'container',
                 direction: 'row',

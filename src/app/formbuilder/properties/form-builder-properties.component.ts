@@ -2,7 +2,7 @@ import { Component, ComponentFactoryResolver, OnDestroy, OnInit, Type, ViewChild
 import { Subscription } from 'rxjs';
 import { EventService } from 'src/app/formbuilder/services/event.service';
 import { EventData } from 'src/app/core/model/EventData';
-import { PLUGINS_CONFIG } from '../plugins/plugin-config';
+import { PLUGINS_CONFIG } from '../plugin-config';
 
 @Component({
   selector: 'form-builder-properties',

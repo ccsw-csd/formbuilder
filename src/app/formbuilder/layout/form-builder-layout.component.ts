@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { EventService } from 'src/app/formbuilder/services/event.service';
 import { EventData } from 'src/app/core/model/EventData';
 import { FormViewerComponent } from 'src/app/formviewer/form-viewer/form-viewer.component';
-import { formMetadata } from '../plugins/plugin-config';
+import { formMetadata } from '../plugin-config';
 
 @Component({
   selector: 'form-builder', 

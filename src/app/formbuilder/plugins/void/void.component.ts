@@ -1,7 +1,7 @@
 import { Component, Injector } from '@angular/core';
 import { EventData } from 'src/app/core/model/EventData';
 import { PluginBaseComponent } from '../plugin-base-component';
-import { PLUGINS_CONFIG } from '../plugin-config';
+import { PLUGINS_CONFIG } from '../../plugin-config';
 
 @Component({
   selector: 'form-builder-plugin-void',
