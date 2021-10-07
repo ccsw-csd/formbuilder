@@ -23,7 +23,7 @@ export const PLUGINS_CONFIG = {
         type:'input', dataType: 'text', required: true, name:'', text: 'Input', value: null, style: 'flex: 1;'}
     },
     'textarea': {class: FormBuilderPluginTextareaComponent, configClass: TextareaPropertiesComponent, defaultConfig: {
-        type:'textarea', required: true, name:'', text: 'Textarea', value: null, style: 'flex: 1;'}
+        type:'textarea', required: true, name:'', text: 'Textarea', value: null, style: 'flex: 1;', rows: 5}
     },
     'select': {class: FormBuilderPluginSelectComponent, configClass: SelectPropertiesComponent, defaultConfig: {
         type:'select', required: true, name:'', text: 'Select', value: null, style: 'flex: 1;'}

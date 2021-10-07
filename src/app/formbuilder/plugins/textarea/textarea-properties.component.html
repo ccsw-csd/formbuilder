@@ -2,7 +2,14 @@
 
     <h2>Textarea</h2>
 
-    <mat-checkbox style="margin-bottom: 15px; align-self: flex-end;" [(ngModel)]="data.required">Obligatorio</mat-checkbox>
+    <div style="width: 100%;display:flex;gap: 20px;">
+        <mat-form-field style="flex: 1;">        
+            <mat-label>Altura en filas</mat-label>
+            <input type="number" matInput [(ngModel)]="data.rows" placeholder="Altura en filas" />
+        </mat-form-field>
+    
+        <mat-checkbox style="margin-top: 15px;" [(ngModel)]="data.required">Obligatorio</mat-checkbox>
+    </div>
 
     <mat-form-field style="width: 100%;">        
         <mat-label>Databind</mat-label>
