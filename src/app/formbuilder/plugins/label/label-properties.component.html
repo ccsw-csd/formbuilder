@@ -5,12 +5,12 @@
     <div style="display:flex;flex-direction: column;">
         <mat-form-field style="width: 100%;">        
             <mat-label>Texto</mat-label>
-            <input matInput [(ngModel)]="data.value" placeholder="Texto" />
+            <textarea  matInput [(ngModel)]="data.value" placeholder="Texto" rows=15></textarea>
         </mat-form-field>
         
         <mat-form-field style="width: 100%;height:250px;">        
             <mat-label>Estilo CSS</mat-label>
-            <textarea  matInput [(ngModel)]="data.style" placeholder="Estilo CSS"></textarea>
+            <textarea  matInput [(ngModel)]="data.style" placeholder="Estilo CSS" rows=5></textarea>
         </mat-form-field>
     </div>
 
