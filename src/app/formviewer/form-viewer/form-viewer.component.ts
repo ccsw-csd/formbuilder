@@ -8,7 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class FormViewerComponent implements OnInit {
 
-  formData: any = {};
+  model: any = {};
   dataString: string = '';
 
   constructor(

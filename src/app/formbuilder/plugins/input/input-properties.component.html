@@ -28,9 +28,12 @@
         <input matInput [(ngModel)]="data.text" placeholder="Nombre" />
     </mat-form-field>
 
-    <mat-form-field style="width: 100%;">        
-        <mat-label>Validacion</mat-label>
-        <textarea  matInput [(ngModel)]="data.validation" placeholder="Validacion" rows=5></textarea>
+    <mat-form-field class="help" Vstyle="width: 100%;">        
+        <mat-label>Validación</mat-label>
+        <textarea  matInput [(ngModel)]="data.validation" placeholder="Validación" rows=5
+            matTooltip="Algoritmo de validación del campo (lenguaje javascript)"            
+            matTooltipShowDelay="1000"
+        ></textarea>
     </mat-form-field>
     
     <mat-form-field style="width: 100%;">

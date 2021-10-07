@@ -8,13 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class FormViewerPluginTextareaComponent implements OnInit {
 
   @Input() data: any;
-  @Input() formData: any;
+  @Input() model: any;
 
   constructor() { }
 
   ngOnInit(): void {
     if (this.data.name)
-      this.formData[this.data.name] = this.data.value;
+      this.model[this.data.name] = this.data.value;
   }
 
 }

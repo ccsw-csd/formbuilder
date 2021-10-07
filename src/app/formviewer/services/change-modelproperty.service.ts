@@ -5,7 +5,7 @@ import { EventData } from 'src/app/core/model/EventData';
 @Injectable({
   providedIn: 'root'
 })
-export class ChangeFormDataService {
+export class ChangeModelPropertyService {
 
   private eventSource = new Subject<EventData>();
 

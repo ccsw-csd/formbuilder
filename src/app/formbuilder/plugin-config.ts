@@ -72,7 +72,7 @@ export var formMetadata = {
                         dataRoot: null,
                         propertyId: 'id',
                         propertyValue: 'nm',
-                        transformData: 'items = items.filter(element => element.id.startsWith(this.formData.provincia))',
+                        transformData: 'items = items.filter(element => element.id.startsWith(model.provincia))',
                     }}),
                 ]
             },
@@ -87,6 +87,37 @@ export var formMetadata = {
                     cloneConfig('select', {name:'departamento', text: 'Seleccione Departamento', loadMethod:'local', local: {
                         data: '1;Informática\n2;Biología\n3;Enfermería',                        
                     }}),
+                ]
+            },
+            {
+                type: 'container',
+                visibility: 'this.model.departamento == 1',
+                direction: 'column',
+                components: [
+                    cloneConfig('label', {value:'Solicitud de informática'}),
+                    cloneConfig('input', {text:'Fecha solicitud', name: 'fecha', dataType:'text'}),
+                    cloneConfig('input', {text:'Fecha solicitud', name: 'fecha', dataType:'text'}),
+                ]
+            },
+            {
+                type: 'container',
+                visibility: 'this.model.departamento == 2',
+                direction: 'column',
+                components: [
+                    cloneConfig('label', {value:'Solicitud de biología'}),
+                    cloneConfig('input', {text:'Fecha solicitud', name: 'fecha', dataType:'text'}),
+                    cloneConfig('input', {text:'Fecha solicitud', name: 'fecha', dataType:'text'}),
+                    cloneConfig('input', {text:'Fecha solicitud', name: 'fecha', dataType:'text'}),
+                    cloneConfig('input', {text:'Fecha solicitud', name: 'fecha', dataType:'text'}),
+                ]
+            },
+            {
+                type: 'container',
+                visibility: 'this.model.departamento == 3',
+                direction: 'column',
+                components: [
+                    cloneConfig('label', {value:'Solicitud de enfermería'}),
+                    cloneConfig('input', {text:'Fecha solicitud', name: 'fecha', dataType:'text'}),
                 ]
             },
             {}

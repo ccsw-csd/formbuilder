@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { EventData } from 'src/app/core/model/EventData';
-import { ChangeFormDataService } from '../../services/change-formdata.service';
+import { ChangeModelPropertyService } from '../../services/change-modelproperty.service';
 import { RestDataLoaderService } from '../../services/rest-data-loader.service';
 
 @Component({
@@ -12,25 +12,25 @@ import { RestDataLoaderService } from '../../services/rest-data-loader.service';
 export class FormViewerPluginSelectComponent implements OnInit, OnDestroy {
 
   @Input() data: any;
-  @Input() formData: any;
+  @Input() model: any;
   private subscription: Subscription;
 
   optionsData: any[];
 
   constructor(
     private restDataLoaderService : RestDataLoaderService,
-    private eventService: ChangeFormDataService,
+    private eventService: ChangeModelPropertyService,
   ) {
 
     this.subscription = this.eventService.eventSourceObservable$.subscribe(      
       event => {
-        if (this.data != null && this.formData != null && event.getSenderId() != this.data.name) this.receiveEvent(event);
+        if (this.data != null && this.model != null && event.getSenderId() != this.data.name) this.receiveEvent(event);
     });
   }
 
   ngOnInit(): void {
     if (this.data.name)
-      this.formData[this.data.name] = this.data.value;
+      this.model[this.data.name] = this.data.value;
       
     this.loadData();
   }
@@ -89,8 +89,10 @@ export class FormViewerPluginSelectComponent implements OnInit, OnDestroy {
   private transformAndLoadData(items: any[], transform : string, propertyId, propertyValue : string) : void {
     this.optionsData = [];
 
-    if (transform)
+    if (transform) {
+      let model = this.model;
       eval(transform);
+    }
 
     items.forEach(item => {
       this.optionsData.push({id:item[propertyId], value:item[propertyValue]});
@@ -106,7 +108,7 @@ export class FormViewerPluginSelectComponent implements OnInit, OnDestroy {
 
     let dependencies : string[] = this.data.dependency.split(',');
     dependencies.forEach(item => {
-      if (this.formData[item] == null) notFound = true;
+      if (this.model[item] == null) notFound = true;
     });
 
     return notFound == false;

@@ -1,4 +1,4 @@
-<div class='container-component'>
+<div class='container-component' [ngClass]="{'item-hidden': isHidden()}">
 
     <div style='display:flex; flex:1; flex-direction: {{data.direction}}'>        
         <ng-template ngFor let-item [ngForOf]="data.components">

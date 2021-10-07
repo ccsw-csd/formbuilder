@@ -6,3 +6,14 @@ div.container {
     overflow-x: hidden;
     height: calc(100vh - 180px);
 }
+
+mat-form-field.help:before { 
+	content: "\e88e"; 
+	font-family: "Material Icons Outlined"; 
+	display: block; 
+	position: absolute; 
+	right: 5px;
+    top: 7px;
+	font-size: 18px; 
+	color: #bebebe;
+}

@@ -38,8 +38,13 @@ export class FormBuilderPluginContainerComponent extends PluginBaseComponent  {
         indexItemContainer++;
       }
 
-  });
+    });
 
+  }
+
+  isHidden() : boolean {
+    if (this.data.visibility == null) return false;
+    else return true;
   }
 
   ngOnDestroy() {    

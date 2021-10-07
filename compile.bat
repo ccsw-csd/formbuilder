@@ -1,4 +1,4 @@
-ng build --prod --base-href https://adcsd.github.io/formbuilder/
+#ng build --prod --base-href https://adcsd.github.io/formbuilder/
 
 rm -r docs\
 

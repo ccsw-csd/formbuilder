@@ -1,1 +1,10 @@
 @import '../../../../assets/scss/component-styles.scss';
+
+.container-component.item-hidden {
+    border: 1px dashed #baba00;
+}
+
+.container-component.item-hidden:hover {
+    border: 2px dashed #baba00;
+}
+

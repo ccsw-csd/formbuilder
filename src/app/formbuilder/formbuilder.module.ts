@@ -20,6 +20,7 @@ import { LabelPropertiesComponent } from './plugins/label/label-properties.compo
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { FormBuilderPluginVoidComponent } from './plugins/void/void.component';
 import { FormBuilderPluginInputComponent } from './plugins/input/input.component';
 import { InputPropertiesComponent } from './plugins/input/input-properties.component';
@@ -59,6 +60,7 @@ import { FormBuilderDialogPropertiesComponent } from './properties/form-builder-
     MatButtonModule,
     MatIconModule,  
     MatDividerModule,
+    MatTooltipModule,
   ],
   exports: [
     FormBuilderLayoutComponent
