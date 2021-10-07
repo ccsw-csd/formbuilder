@@ -55,14 +55,49 @@ export class FormViewerPluginSelectComponent implements OnInit, OnDestroy {
   }
 
   private loadData(): void {
-    console.log(this.formData);
-
     if (this.allDependenciesFilled()) {
-      this.restDataLoaderService.loadData(this.data.rest.url, this.data.rest.method).subscribe(result => {
-        this.transformData(result);
-      })    
+
+      if (this.data.loadMethod == 'rest') {
+        this.loadDataRest();
+      }
+      else if (this.data.loadMethod == 'local') {
+        this.loadDataLocal();
+      }
     }
   }
+
+  private loadDataLocal() : void {
+    let items : any[] = [];
+
+    let dataRaw : string[] = this.data.local.data.split('\n');
+    dataRaw.forEach(item => {
+      let id = item.substring(0, item.indexOf(';'));
+      let value = item.substring(item.indexOf(';')+1);
+      
+      items.push({id:id, value:value});
+    });
+
+    this.transformAndLoadData(items, this.data.local.transformData, 'id', 'value');
+  }
+
+  private loadDataRest() : void {
+    this.restDataLoaderService.loadData(this.data.rest.url, this.data.rest.method).subscribe(items => {
+      this.transformAndLoadData(items, this.data.rest.transformData, this.data.rest.propertyId, this.data.rest.propertyValue);
+    })    
+  }
+
+  private transformAndLoadData(items: any[], transform : string, propertyId, propertyValue : string) : void {
+    this.optionsData = [];
+
+    if (transform)
+      eval(transform);
+
+    items.forEach(item => {
+      this.optionsData.push({id:item[propertyId], value:item[propertyValue]});
+    })
+
+  }
+
 
   allDependenciesFilled() : boolean {
     if (this.data.dependency == null) return true;
@@ -77,19 +112,5 @@ export class FormViewerPluginSelectComponent implements OnInit, OnDestroy {
     return notFound == false;
   }
 
-
-  private transformData(items: any[]) : void {
-    this.optionsData = [];
-
-    if (this.data.rest.preHook)
-      eval(this.data.rest.preHook);
-
-    items.forEach(item => {
-      this.optionsData.push({id:item[this.data.rest.propertyId], value:item[this.data.rest.propertyValue]});
-    })
-
-    if (this.data.rest.postHook)
-      eval(this.data.rest.postHook);
-  }
 
 }

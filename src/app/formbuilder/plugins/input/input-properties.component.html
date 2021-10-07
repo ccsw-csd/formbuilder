@@ -3,9 +3,9 @@
     <h2>Input</h2>
 
 
-    <div style="display:flex;flex-direction: row;">
+    <div style="width:100%; display:flex;flex-direction: row; gap: 20px;">
 
-        <mat-form-field style="width: 195px;">
+        <mat-form-field style="min-width:100px; flex:1;">
             <mat-label>Tipo</mat-label>
             <mat-select [(ngModel)]="data.dataType" placeholder="Tipo" required>
                 <mat-option value="text">Texto</mat-option>
@@ -15,12 +15,12 @@
             </mat-select>
         </mat-form-field>
 
-        <mat-checkbox style="width: 130px; padding-top: 18px; padding-left: 50px;" [(ngModel)]="data.required">Obligatorio</mat-checkbox>
+        <mat-checkbox style="padding-top: 18px;" [(ngModel)]="data.required">Obligatorio</mat-checkbox>
     </div>
 
     <mat-form-field style="width: 100%;">        
-        <mat-label>Databind</mat-label>
-        <input matInput [(ngModel)]="data.name" placeholder="Nombre" />
+        <mat-label>Propiedad del modelo</mat-label>
+        <input matInput [(ngModel)]="data.name" placeholder="Propiedad del modelo" />
     </mat-form-field>
 
     <mat-form-field style="width: 100%;">        

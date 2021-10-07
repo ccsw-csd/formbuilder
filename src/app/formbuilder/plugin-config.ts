@@ -58,21 +58,21 @@ export var formMetadata = {
                 type: 'container',
                 direction: 'row',
                 components: [
-                    cloneConfig('select', {name:'provincia', text: 'Seleccione Provincia', rest: {
+                    cloneConfig('select', {name:'provincia', text: 'Seleccione Provincia', loadMethod:'rest', rest: {
                         url: 'https://raw.githubusercontent.com/IagoLast/pselect/master/data/provincias.json', 
                         method: 'GET',
                         dataRoot: null,
                         propertyId: 'id',
                         propertyValue: 'nm',
-                        preHook: 'items.sort((a,b)=>a.nm.localeCompare(b.nm))',
+                        transformData: 'items.sort((a,b)=>a.nm.localeCompare(b.nm))',
                     }}),
-                    cloneConfig('select', {name:'municipio', text: 'Seleccione Municipio', dependency: 'provincia', rest: {
+                    cloneConfig('select', {name:'municipio', text: 'Seleccione Municipio', dependency: 'provincia', loadMethod:'rest', rest: {
                         url: 'https://raw.githubusercontent.com/IagoLast/pselect/master/data/municipios.json', 
                         method: 'GET',
                         dataRoot: null,
                         propertyId: 'id',
                         propertyValue: 'nm',
-                        preHook: 'items = items.filter(element => element.id.startsWith(this.formData.provincia))',
+                        transformData: 'items = items.filter(element => element.id.startsWith(this.formData.provincia))',
                     }}),
                 ]
             },
@@ -84,7 +84,9 @@ export var formMetadata = {
                 direction: 'row',
                 components: [
                     cloneConfig('input', {text:'Fecha solicitud', name: 'fecha', dataType:'date'}),
-                    cloneConfig('input', {text:'Departamento', name: 'departamento'}),
+                    cloneConfig('select', {name:'departamento', text: 'Seleccione Departamento', loadMethod:'local', local: {
+                        data: '1;Informática\n2;Biología\n3;Enfermería',                        
+                    }}),
                 ]
             },
             {}

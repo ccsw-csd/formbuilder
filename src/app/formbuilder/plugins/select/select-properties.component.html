@@ -5,8 +5,8 @@
     <mat-checkbox style="margin-bottom: 15px; align-self: flex-end;" [(ngModel)]="data.required">Obligatorio</mat-checkbox>
 
     <mat-form-field style="width: 100%;">        
-        <mat-label>Databind</mat-label>
-        <input matInput [(ngModel)]="data.name" placeholder="Nombre" />        
+        <mat-label>Propiedad del modelo</mat-label>
+        <input matInput [(ngModel)]="data.name" placeholder="Propiedad del modelo" />        
     </mat-form-field>
 
     <mat-form-field style="width: 100%;">        
@@ -15,10 +15,87 @@
     </mat-form-field>
 
     <mat-form-field style="width: 100%;">        
+        <mat-label>Dependencia</mat-label>
+        <input matInput [(ngModel)]="data.dependency" placeholder="Dependencia" />
+    </mat-form-field>
+
+
+    <mat-form-field style="width: 100%;">        
         <mat-label>Validacion</mat-label>
         <textarea  matInput [(ngModel)]="data.validation" placeholder="Validacion" rows=5></textarea>
     </mat-form-field>
+
     
+    <mat-divider style="margin-bottom: 20px"></mat-divider>
+
+    <mat-form-field style="width: 100%;">
+        <mat-label>Obtención de datos</mat-label>
+        <mat-select [(ngModel)]="data.loadMethod" placeholder="Obtención de datos" (selectionChange)="selecLoadMethodChange()">
+            <mat-option value="local">Listado en local</mat-option>
+            <mat-option value="rest">Petición Rest</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+    <div *ngIf="data.loadMethod == 'local'">
+        <mat-form-field style="width: 100%;">        
+            <mat-label>Listado de datos</mat-label>
+            <textarea  matInput [(ngModel)]="data.local.data" placeholder="Listado de datos" rows=5></textarea>
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%;">        
+            <mat-label>Transformación</mat-label>
+            <textarea  matInput [(ngModel)]="data.local.transformData" placeholder="Transformación" rows=5></textarea>
+        </mat-form-field>
+    </div>
+
+    <div *ngIf="data.loadMethod == 'rest'">
+        <mat-form-field style="width: 100%;">        
+            <mat-label>URL</mat-label>
+            <input matInput [(ngModel)]="data.rest.url" placeholder="URL" />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%;">
+            <mat-label>Método HTTP</mat-label>
+            <mat-select [(ngModel)]="data.rest.method" placeholder="Método HTTP" required>
+                <mat-option value="GET">Get</mat-option>
+                <mat-option value="POST">Post</mat-option>
+                <mat-option value="PUT">Put</mat-option>
+                <mat-option value="DELETE">Delete</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="data.rest.method != 'GET'" style="width: 100%;">        
+            <mat-label>Body</mat-label>
+            <textarea  matInput [(ngModel)]="data.rest.body" placeholder="Body" rows=5></textarea>
+        </mat-form-field>
+    
+            
+        <mat-form-field style="width: 100%;">        
+            <mat-label>Propiedad ID</mat-label>
+            <input matInput [(ngModel)]="data.rest.propertyId" placeholder="Propiedad ID" />
+        </mat-form-field>
+        
+        <mat-form-field style="width: 100%;">        
+            <mat-label>Propiedad Valor</mat-label>
+            <input matInput [(ngModel)]="data.rest.propertyValue" placeholder="Propiedad Valor" />
+        </mat-form-field>
+        
+        <mat-form-field style="width: 100%;">        
+            <mat-label>Propiedad Base</mat-label>
+            <input matInput [(ngModel)]="data.rest.dataRoot" placeholder="Propiedad Base" />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%;">        
+            <mat-label>Transformación</mat-label>
+            <textarea  matInput [(ngModel)]="data.rest.transformData" placeholder="Transformación" rows=5></textarea>
+        </mat-form-field>
+
+    </div>
+
+    <mat-divider style="margin-bottom: 20px"></mat-divider>
+
+
     <mat-form-field style="width: 100%;">
         <mat-label>Estilo CSS</mat-label>
         <textarea  matInput [(ngModel)]="data.style" placeholder="Estilo CSS" rows=5></textarea>

@@ -14,4 +14,9 @@ export class SelectPropertiesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  selecLoadMethodChange() : void {
+    if (this.data.loadMethod == 'rest') this.data.rest = Object.assign({}, this.data.rest);
+    if (this.data.loadMethod == 'local') this.data.local = Object.assign({}, this.data.local);
+  }
+
 }
