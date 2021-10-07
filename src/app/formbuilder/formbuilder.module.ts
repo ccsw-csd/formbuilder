@@ -28,6 +28,7 @@ import { TextareaPropertiesComponent } from './plugins/textarea/textarea-propert
 import { FormBuilderPluginSelectComponent } from './plugins/select/select.component';
 import { SelectPropertiesComponent } from './plugins/select/select-properties.component';
 import { FormBuilderPluginDividerComponent } from './plugins/divider/divider.component';
+import { FormBuilderDialogPropertiesComponent } from './properties/form-builder-dialog-properties.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { FormBuilderPluginDividerComponent } from './plugins/divider/divider.com
     FormBuilderPluginLabelComponent, LabelPropertiesComponent, 
     FormBuilderPluginInputComponent, InputPropertiesComponent, 
     FormBuilderPluginTextareaComponent, TextareaPropertiesComponent, 
-    FormBuilderPluginSelectComponent, SelectPropertiesComponent, 
+    FormBuilderPluginSelectComponent, SelectPropertiesComponent, FormBuilderDialogPropertiesComponent, 
   ],
   imports: [
     CommonModule,

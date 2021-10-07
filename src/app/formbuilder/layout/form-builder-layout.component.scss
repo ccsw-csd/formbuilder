@@ -39,6 +39,7 @@ div.container {
             }
     
             div.title {
+                color: #707070;
                 font-weight: bold;
                 font-size: 21px;
                 text-align: center;
@@ -55,10 +56,22 @@ div.container {
                 padding: 0px;
 
                 div.title {
+                    display: flex;
+                    color: #707070;
                     font-weight: bold;
                     font-size: 21px;
                     text-align: center;
                     padding: 20px 0px 25px 0px;
+
+                    div {
+                        flex: 1;
+                    }
+                    span {
+                        margin-right: 20px;
+                        color: #707070;
+                        cursor: pointer;
+                    }
+    
                 }
             }
         }

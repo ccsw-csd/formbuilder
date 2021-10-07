@@ -38,8 +38,8 @@ export class FormBuilderPropertiesComponent implements OnInit, OnDestroy {
   private receiveEvent(event : EventData) {
 
     if (event.getData().action == 'openProperties') {
-      this.eventService.sendEvent({action:'openProperties'}, this.COMPONENT_ID, "FormBuilder");
       this.generateComponent(event.getData().data);
+      this.eventService.sendEvent({action:'openProperties', componentType: event.getData().data.type, data: event.getData().data}, this.COMPONENT_ID, "FormBuilder");
     }
     else 
       console.error('recibido properties', event.getData());
@@ -53,8 +53,9 @@ export class FormBuilderPropertiesComponent implements OnInit, OnDestroy {
     
     let componentConfig = PLUGINS_CONFIG[component.type];
     
-    if (componentConfig != null && componentConfig.configClass != null) 
-      this.addComponent(componentConfig.configClass, component);    
+    if (componentConfig != null && componentConfig.configClass != null) {
+      this.addComponent(componentConfig.configClass, component);          
+    }
     else 
       console.error('Error al construir elemento properties', component);
   }
@@ -63,15 +64,11 @@ export class FormBuilderPropertiesComponent implements OnInit, OnDestroy {
   
 
   private addComponent(componentClass: Type<any>, data:any) {
-    // Create component dynamically inside the ng-template
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentClass);
     const component = this.container.createComponent(componentFactory);
 
     component.instance.data = data;
     component.instance.componentClass = componentClass;
-
-    // Push the component so that we can keep track of which components are created
-    //this.components.push(component);
   }
 
   private removeAllComponents() {

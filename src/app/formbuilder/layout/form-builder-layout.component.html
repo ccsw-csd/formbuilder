@@ -12,7 +12,10 @@
     </mat-sidenav>
     <mat-sidenav class="properties" [opened]="menuProperties" mode="side" position="end" #drawerProperties>
       <div class="properties-content">
-        <div class="title">Propiedades</div>
+        <div class="title">
+          <div>Propiedades</div>
+          <span class="material-icons-outlined md-18 menu-item" (click)="openPropertiesInModal();">open_in_new</span>
+        </div>
         <form-builder-properties></form-builder-properties>
       </div>
     </mat-sidenav>

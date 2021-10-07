@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ComponentFactory, ComponentFactoryResolver, OnDestroy, OnInit, Type, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Subscription } from 'rxjs';
@@ -7,6 +7,7 @@ import { EventData } from 'src/app/core/model/EventData';
 import { FormViewerComponent } from 'src/app/formviewer/form-viewer/form-viewer.component';
 import { formMetadata } from '../plugin-config';
 import { FormBuilderService } from '../services/formbuilder.service';
+import { FormBuilderDialogPropertiesComponent } from '../properties/form-builder-dialog-properties.component';
 
 @Component({
   selector: 'form-builder', 
@@ -23,6 +24,7 @@ export class FormBuilderLayoutComponent implements OnInit, OnDestroy {
   @ViewChild('drawerProperties') 
   private drawerProperties: MatSidenav;
 
+  private lastEventData : EventData = null;
   formMetadata: any = {};
 
 
@@ -30,6 +32,7 @@ export class FormBuilderLayoutComponent implements OnInit, OnDestroy {
     private eventService: EventService,
     private matDialog: MatDialog,
     private formBuilderService : FormBuilderService,
+    private componentFactoryResolver: ComponentFactoryResolver,
   ) {
 
     this.subscription = eventService.eventSourceObservable$.subscribe(      
@@ -55,11 +58,22 @@ export class FormBuilderLayoutComponent implements OnInit, OnDestroy {
   private receiveEvent(event: EventData) {
 
     if (event.getData().action == 'openProperties') {
+      this.lastEventData = event;
       this.menuProperties = true;
       this.drawerProperties.open();
     }
     else
       console.error('recibido '+this.COMPONENT_ID, event.getData());
+  }
+
+  openPropertiesInModal(): void {
+    if (this.lastEventData != null) {
+      this.matDialog.open(FormBuilderDialogPropertiesComponent, {
+        data: this.lastEventData.getData(),
+        height: '90%',
+        width: '800px',
+      });    
+    }
   }
 
   preview(): void {

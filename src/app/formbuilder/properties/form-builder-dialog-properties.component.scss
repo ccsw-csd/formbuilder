@@ -1,0 +1,16 @@
+.title {
+    display: flex;
+    h1 {
+        text-align:center; 
+        font-weight: bold;
+        flex:1;
+    }
+    span {
+        color: #838383;
+        cursor: pointer;
+    }
+}
+
+.body {
+    height: calc(100vh - 200px);
+}

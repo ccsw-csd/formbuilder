@@ -1,4 +1,5 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnDestroy, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EventService } from 'src/app/formbuilder/services/event.service';
 
 @Component({
@@ -8,14 +9,14 @@ import { EventService } from 'src/app/formbuilder/services/event.service';
 })
 export class ContainerPropertiesComponent implements OnInit, OnDestroy  {
 
-  @Input() data: any;
+  @Input() data: any = {};
 
   public numberChilds: number = 1;
 
   constructor(
     private eventService: EventService,
   ) {
-   }
+  }
 
   ngOnInit() {
     this.numberChilds = this.data.components.length;    
