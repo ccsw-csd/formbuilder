@@ -8,6 +8,7 @@ import { FormViewerComponent } from 'src/app/formviewer/form-viewer/form-viewer.
 import { formMetadata } from '../plugin-config';
 import { FormBuilderService } from '../services/formbuilder.service';
 import { FormBuilderDialogPropertiesComponent } from '../properties/form-builder-dialog-properties.component';
+import { JsonPreviewComponent } from '../json-preview/json-preview.component';
 
 @Component({
   selector: 'form-builder', 
@@ -79,6 +80,16 @@ export class FormBuilderLayoutComponent implements OnInit, OnDestroy {
   preview(): void {
     
     this.matDialog.open(FormViewerComponent, {
+      data:this.formMetadata,
+      height: '90%',
+      width: '90%',
+    });    
+  
+  }
+
+  previewJSON(): void {
+    
+    this.matDialog.open(JsonPreviewComponent, {
       data:this.formMetadata,
       height: '90%',
       width: '90%',

@@ -21,6 +21,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatMenuModule} from '@angular/material/menu';
+import { AceModule } from 'ngx-ace-wrapper';
 import { FormBuilderPluginVoidComponent } from './plugins/void/void.component';
 import { FormBuilderPluginInputComponent } from './plugins/input/input.component';
 import { InputPropertiesComponent } from './plugins/input/input-properties.component';
@@ -30,6 +32,7 @@ import { FormBuilderPluginSelectComponent } from './plugins/select/select.compon
 import { SelectPropertiesComponent } from './plugins/select/select-properties.component';
 import { FormBuilderPluginDividerComponent } from './plugins/divider/divider.component';
 import { FormBuilderDialogPropertiesComponent } from './properties/form-builder-dialog-properties.component';
+import { JsonPreviewComponent } from './json-preview/json-preview.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,7 @@ import { FormBuilderDialogPropertiesComponent } from './properties/form-builder-
     FormBuilderPluginLabelComponent, LabelPropertiesComponent, 
     FormBuilderPluginInputComponent, InputPropertiesComponent, 
     FormBuilderPluginTextareaComponent, TextareaPropertiesComponent, 
-    FormBuilderPluginSelectComponent, SelectPropertiesComponent, FormBuilderDialogPropertiesComponent, 
+    FormBuilderPluginSelectComponent, SelectPropertiesComponent, FormBuilderDialogPropertiesComponent, JsonPreviewComponent, 
   ],
   imports: [
     CommonModule,
@@ -61,6 +64,8 @@ import { FormBuilderDialogPropertiesComponent } from './properties/form-builder-
     MatIconModule,  
     MatDividerModule,
     MatTooltipModule,
+    MatMenuModule,
+    AceModule,
   ],
   exports: [
     FormBuilderLayoutComponent

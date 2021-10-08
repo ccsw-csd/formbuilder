@@ -38,9 +38,15 @@
             <input matInput [(ngModel)]="formMetadata.name" placeholder="Nombre del formulario" />
           </mat-form-field>
 
-          <button class="preview" mat-button secondary (click)="preview()">Previsualizar</button>
           <button mat-button secondary (click)="close()">Cerrar</button>
           <button mat-button primary (click)="save()" color="primary">Guardar</button>
+          <button mat-button [matMenuTriggerFor]="menu" style="width: 26px;padding: 0px;min-width: 0px;color:#3f51b5;margin: 10px 5px 0px 5px;">
+            <span class="material-icons-outlined md-18 menu-item">more_vert</span>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="previewJSON()">JSON </button>
+            <button mat-menu-item (click)="preview()">Previsualizar</button>
+          </mat-menu>
 
         </div>
         <div class="body-content">

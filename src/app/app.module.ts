@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { FormBuilderModule } from './formbuilder/formbuilder.module';
 import { FormViewerModule } from './formviewer/formviewer.module';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
     FormViewerModule,
   ],
   providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},
   ],
   bootstrap: [AppComponent]
 })

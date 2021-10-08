@@ -2,15 +2,8 @@
     <span class="material-icons-outlined md-18" (click)="close()">close</span>
 </div>
 
-<mat-tab-group>
-    <mat-tab label="Formulario">   
-        <div class="form-body">
-            <h1>{{data.name}}</h1>
-            <mat-divider></mat-divider>
-            <form-viewer-plugin-container [data]="data.components[0]" [model]="model"></form-viewer-plugin-container>
-        </div>        
-    </mat-tab>
-    <mat-tab label="Código">
-        <ace [config]="{}" [(value)]="dataString"></ace>
-    </mat-tab>
-</mat-tab-group>
+<div class="form-body">
+    <h1>{{data.name}}</h1>
+    <mat-divider></mat-divider>
+    <form-viewer-plugin-container [data]="data.components[0]" [model]="model"></form-viewer-plugin-container>
+</div>        

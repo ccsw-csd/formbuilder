@@ -8,12 +8,7 @@ div.close {
 }
 
 
-div.form-body {
-    display:flex;
-    flex-direction: column;
+div.content {
     height: calc(90vh - 80px);
-    margin: 0px;
-    padding: 15px;
-    overflow: auto;
 }
 

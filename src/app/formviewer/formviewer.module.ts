@@ -11,7 +11,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import { AceModule } from 'ngx-ace-wrapper';
 import {MatDividerModule} from '@angular/material/divider';
 
 import { FormViewerComponent } from './form-viewer/form-viewer.component';
@@ -40,7 +39,6 @@ import { FormViewerPluginDividerComponent } from './plugins/divider/divider.comp
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
-    AceModule,
     MatDividerModule,
   ],
   providers: [
