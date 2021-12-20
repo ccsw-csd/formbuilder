@@ -1,4 +1,4 @@
-name: Workflow
+name: Compile and build
 on: [push]
 
 jobs:
